@@ -1,0 +1,259 @@
+// @import '~@fontsource/fira-mono';
+@font-face {
+    font-family: 'Roboto Flex';
+    src: url('../css/fonts/RobotoFlex.ttf');
+}
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('../css/fonts/RobotoMono.ttf');
+}
+@font-face {
+    font-family: 'Lobster';
+    src: url('../css/fonts/Lobster-Regular.ttf');
+}
+@font-face {
+    font-family: 'Black Han Sans';
+    src: url('../css/fonts/BlackHanSans-Regular.ttf');
+}
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('../css/fonts/RobotoSlab.ttf');
+}
+@font-face {
+    font-family: 'Francois One';
+    src: url('../css/fonts/FrancoisOne-Regular.ttf');
+}
+@font-face {
+    font-family: 'Paytone One';
+    src: url('../css/fonts/PaytoneOne-Regular.ttf');
+}
+@font-face {
+    font-family: 'Poiret One';
+    src: url('../css/fonts/PoiretOne-Regular.ttf');
+}
+
+:root {
+    --font-body: 
+    Arial, 
+    -apple-system, 
+    BlinkMacSystemFont, 
+    'Segoe UI', 
+    Roboto, 
+    Roboto Mono, 
+    Roboto Slab, 
+    'Roboto Flex', 
+    Oxygen, 
+    Ubuntu,
+    Cantarell, 
+    'Open Sans', 
+    'Helvetica Neue', 
+    sans-serif;
+
+    --font-mono: 'Fira Mono', monospace;
+
+    --main-color-light: #e4e4e4;
+    --main-color-dark: #1b1b1e;
+    --main-background-color-light: #f8f8f8;
+    --main-background-color-dark: #1b1b1e;
+
+    --main-color: #e4e4e4;
+    --second-color: #222222ce;
+    --third-color: #222222ce;
+    --fourth-color: #222222ce;
+
+    --main-accent-color: #245b9a;
+    --second-accent-color: #114179;
+    --third-accent-color: #114179;
+    --fourth-accent-color: #114179;
+
+    --main-background-color: #1b1b1e;
+    --second-background-color: #100c0c;
+    --third-background-color: #100c0c;
+    --fourth-background-color: #100c0c;
+
+    /* Logo */
+    --domainname__name-border-color: #ffffff43;
+    --domainname__domain-color: #e4e4e4;
+    --domainname__name-color: var(--main-accent-color);
+    --domainname__domain-background-color: var(--main-accent-color);
+    /* Logo */
+
+    --border-color-dark: #2b2b2b69;
+    /* codeblock */
+    --codeblock-background: #2d2d2d;
+    --codeblock-box-shadow: 2px 2px 6px rgba(29, 29, 29, 0.714);
+    --codeblock-border-radius: 5px 5px 5px 5px;
+    --codeblock__header-background: #0066ff;
+    --codeblock__header__label-background: #0066ff;
+    --codeblock__header__label-color: #2d2d2d;
+    --codeblock__header__copy-btn-color-copy: #0066ff;
+    --codeblock__header__copy-btn-color: #f1e6e6;
+    /* codeblock */
+
+    /* image */
+    // --image-background-color: var(--second-accent-background-color);
+    // --image-border-color: var(--second-accent-color);
+    // --image-color: #f1e6e6;
+    // --image-border-radius: 10px;
+    /* image */
+}
+
+.theme {
+    color: var(--main-accent-color);
+}
+
+html {
+    font-size: calc(15px + 0.390625vw);
+    scroll-behavior: smooth;
+    scroll-snap-type: proximity;
+    overflow-y: scroll;
+    ::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+        transition: all .3s ease-in-out;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: var(--main-background-color);
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--main-color);
+        border-radius: 5px;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--main-accent-color);
+        transition: background-color 3s ease-in-out;
+    }
+    body {
+        .app{
+            width: 100%;
+            min-height: 100vh;
+            background-color: var(--main-background-color);
+            .main{
+                width: 100%;
+                // max-width: 48rem;
+                margin: 0 auto;
+                // background-color: red !important;
+                background:var(--main-background-color);
+			    box-sizing: border-box;
+                .blog{
+                    width: 100%;
+                    max-width: 48rem !important;
+                    // background-color: green;
+                    box-sizing: border-box;
+                }
+                .post{
+                    margin: 0 auto;
+                    width: 100%;
+                    max-width: 100%;
+                    // background-color: #37ecd4;
+                    box-sizing: border-box;
+                    position: relative;
+                    .post__description{
+                        // background-color: #07884c;
+                    }
+                    .post__content{
+                        margin: 0 auto;
+                        width: 100%;
+                        max-width: 36rem;
+                        // background-color: #9e1b04;
+                    }
+                }
+            }
+        }
+
+        font-family: var(--font-body);
+        color: var(--main-color);
+        background-color: var(--main-background-color);
+        min-height: 100vh;
+        margin: 0;
+        font-family: 'Roboto Flex';
+        li, 
+        a{
+            text-decoration: none;
+            list-style: none;
+            color: var(--main-color);
+        }
+        input[type="text"] {
+            font-family: 'Roboto Flex';
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            letter-spacing: 1px;
+            font-weight: 100;
+            font-family: 'Black Han Sans';
+            color: var(--main-accent-color);
+        }   
+        p {
+            color: var(--main-color);
+        }
+        a {
+            text-decoration: none;
+        }
+        a.animated {
+            text-decoration: none;
+            z-index: 0;
+            color: var(--main-accent-color);
+            position: relative;
+            padding: 5px;
+        }
+        a.animated::before {
+            content: ' ';
+            background-color: var(--main-accent-color);
+            position: absolute;
+            left: 0;
+            bottom: 0px;
+            width: 100%;
+            height: 0px;
+            border-radius: 5px;
+            transition: all .1s ease-in-out;
+        }
+        a.animated::after {
+            transition: all .1s ease-in-out;
+        }
+        a.animated:hover::before {
+            bottom: 0px;
+            height: 100%;
+            z-index: -1;
+        }
+        a.animated:hover {
+            color: var(--main-color);
+        }
+        pre[class^="language-"],
+        pre[class*=" language-"] {
+            box-shadow: none !important;
+            margin: 0px !important;
+            overflow-y: scroll;
+        }
+        pre[class^="language-"]::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        :where(h2, h3, h4, h5, h6) {
+            .icon-link {
+                position: relative;
+                &::before {
+                    content: "#";
+                    position: absolute;
+                    left: -1ch;
+                    top: 0;
+                    opacity: 0;
+                    text-decoration: underline;
+                }
+            }
+            &:hover .icon-link::before {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+
+
