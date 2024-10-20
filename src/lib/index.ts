@@ -1,10 +1,9 @@
 // place files you want to import through the `$lib` alias in this folder.
 //disable ssr
-import { error } from '@sveltejs/kit';
 import type { Metadata } from '../app';
 
 // use vite glob to fetch all md files
-export const fetchBlogPosts = async () => {
+export const getBlogPosts = async () => {
     const blogPosts = [];
     const globs = import.meta.glob("/src/lib/posts/*/*.md", { eager: true });
     for (const path in globs) {
@@ -23,8 +22,8 @@ export const fetchBlogPosts = async () => {
 }
 
 // get categories distinct
-export const fetchCategories = async () => {
-    const blogPosts = await fetchBlogPosts();
+export const getCategories = async () => {
+    const blogPosts = await getBlogPosts();
     const categories: Array<string> = [];
     blogPosts.forEach(post => {
         const _categories = post.categories as Array<string> ?? [];
@@ -47,9 +46,15 @@ export const getPostBySlug = async (slug: string) => {
     } catch (e) {
         console.error("Post not found", { message: "Check the folder/ markdown file name - " + (e as Error)?.message });
         throw new Error("Post not found - Check the folder/markdown file name - " + (e as Error)?.message);
-        throw error(404, { message: (e as Error)?.message } as App.Error);
     }
 }
+
+export const getPostsByCategory = async (category: string) => {
+    const blogPosts = await getBlogPosts();
+    const posts = blogPosts.filter(post => post.categories?.includes(category));
+    return posts;
+}
+
 
 export const getPostsBySlugWildcard = async (slug: string) => {
     const globs = import.meta.glob("/src/lib/posts/*/*.md", { eager: true });

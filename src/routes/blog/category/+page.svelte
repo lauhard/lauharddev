@@ -11,3 +11,9 @@
         </li>
     {/each}
 </ul>
+
+<style lang="scss">
+    a {
+        text-transform: capitalize;
+    }
+</style>

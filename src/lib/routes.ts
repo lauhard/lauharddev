@@ -4,7 +4,7 @@ const Routes = [
         name: "Blog",
     },
     {
-        path: "/category",
+        path: "/blog/category",
         name: "Categories",
     }
 ];

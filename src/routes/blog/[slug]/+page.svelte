@@ -41,7 +41,7 @@
         <p><span class="descr">Updated: </span> <span class="date">{metadata?.updated}</span></p>
     {/if}
     {#if metadata.readingTime}
-        <p><span class="descr">Time: </span> <span class="date">{metadata.readingTime.text}</span></p>
+        <p><span class="descr">Readig: </span> <span class="date">{metadata.readingTime.text}</span></p>
     {/if}
     {#if metadata.author}
         <p><span class="descr">Author: </span> <span class="date">{metadata.author}</span></p>
@@ -53,7 +53,7 @@
     <div class="categories">
             <p><span class="descr">Categories:</span>
             {#each categories as category}
-                <a class="category"href={`category/${category}`} title={category}>{category}</a>
+                <a class="category" href={`category/${category}`} title={category}>{category}</a>
             {/each}
         </p>
     </div>
@@ -86,7 +86,7 @@
         .category{
             margin-right: 0.5rem;
 
-            text-transform: lowercase;
+            text-transform: capitalize;
             font-size: var(--font-size-1);
             &::after{
                 content: ',';
