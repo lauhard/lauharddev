@@ -25,8 +25,16 @@ export const fetchBlogPosts = async () => {
 // get categories distinct
 export const fetchCategories = async () => {
     const blogPosts = await fetchBlogPosts();
-    const categories = blogPosts.map(post => post.categories);
-    return [...new Set(...categories)];
+    const categories: Array<string> = [];
+    blogPosts.forEach(post => {
+        const _categories = post.categories as Array<string> ?? [];
+        _categories.forEach(category => {
+            if (!categories.includes(category)) {
+                categories.push(category);
+            }
+        });
+    });
+    return [...categories];
 }
 
 export const getPostBySlug = async (slug: string) => {

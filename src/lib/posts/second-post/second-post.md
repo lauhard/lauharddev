@@ -5,6 +5,7 @@ created: 'Oct 20, 2024'
 categories:
     - markdown
     - embedded
+    - svelte
     - test
 published: false
 ---
