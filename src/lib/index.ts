@@ -31,7 +31,7 @@ export const fetchCategories = async () => {
 
 export const getPostBySlug = async (slug: string) => {
     try {
-        const post = await import(`/src/lib/posts/${slug}/${slug}.md`);
+        const post = await import(`../../src/lib/posts/${slug}/${slug}.md`);
         return {
             post: post.default,
             metadata: post.metadata
