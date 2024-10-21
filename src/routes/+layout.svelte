@@ -10,7 +10,6 @@
 </script>
 
 
-
 <div class="app">
     <Navigation >
         <ThemeSwitcher></ThemeSwitcher>
@@ -27,12 +26,13 @@
 
 <style lang="scss">
     .brand a {
-        font-size: var(--font-size-4);
-        margin-left: var(--size-2);
-        font-weight: bolder;
+        font-size: 14.5px;
+        margin-left: var(--size-1);
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
         &:hover {
             color:var(--accent);
-            text-decoration-color: var(--accent);
         }
     }
     .app {

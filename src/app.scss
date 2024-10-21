@@ -65,6 +65,7 @@ html {
     --content-width: 980px;
     --base-font-size: 16px;
     --line-height: 1.5;
+    --letter-spacing: 0;
     --animation-time: 200ms;
     --scroll-padding-top: 20px;
     --shiki-color: var(--text-1);
@@ -308,15 +309,17 @@ body{
     overflow-x: hidden; /* Prevent horizontal scroll */
     background-color: var(--surface-1);
     color: var(--text-1);
-
 }
 
 html, body{
     margin: 0;
     padding: 0;
-    font-family: var(--font-body);
+    /*font-family: var(--font-body);*/
     font-size: var(--base-font-size);
     line-height: var(--line-height);
+    box-sizing: border-box;
+    letter-spacing: var(--letter-spacing);
+
     ::-webkit-scrollbar {
         width: 7px;
         height: 7px;
@@ -384,8 +387,8 @@ li:not(.blog-post li){
     width: 100%;
     max-inline-size: 100%;
     align-self: center;
-    padding-inline: var(--size-2);
-    padding-block: var(--size-2);
+    padding-inline: var(--size-1);
+    padding-block: var(--size-1);
     border-radius: 0 0 var(--size-2) var(--size-2);
     box-shadow: var(--shadow-5);
 
@@ -400,7 +403,7 @@ li:not(.blog-post li){
         max-inline-size: 100%;
         overflow-x: auto;
         display: block;
-        line-height: var(--size-6);
+        line-height: var(--size-5);
         transition: all var(--animation-time) ease-in-out;
     }
     transition: all var(--animation-time) ease-in-out;
@@ -419,72 +422,76 @@ li:not(.blog-post li){
     width: 100%;
     /*max-inline-size: 95%;*/
     max-inline-size: 100%;
-    padding-block: var(--size-1);
-    padding-inline: var(--size-1);
+    padding-block: 1px;
+    padding-inline: 1px;
     border-radius: var(--border-radius);
     /*background-color: var(--surface-3);*/
-    background: linear-gradient(70deg, var(--surface-2) calc(100% - 70px), var(--surface-3) 70px);
-
+    background: linear-gradient(70deg, var(--surface-2) calc(100% - 40px), var(--surface-3) 40px);
     box-sizing: border-box;
     /*border-left: .1px solid var(--surface-6);
     border-right: .1px solid var(--surface-6);
     border-top: .1px solid var(--surface-6);
     border-bottom: 1px solid var(--surface-1);*/
-    span {
+
+    .language-description {
         margin: 0;
         padding: 0;
-        padding-inline: var(--size-2);
-        margin-left: var(--size-1);
+        padding-inline: var(--size-1);
+        padding-block:1px;
+        margin-left: 5px;
         display: flex;
         text-align: center;
         align-items: center;
         align-self: center;
 
         background-color: var(--accent);
-        font-weight: var(--font-weight-6);
-        font-size: var(--font-size-0);
-        height: var(--font-size-3);
-
+        font-weight: var(--font-weight-7);
+        font-size: .75rem;
+        height: 1rem;
         text-transform: uppercase;
         border-radius: var(--border-radius-label);
-        color: var(--surface-2);
+        color: var(--surface-1);
     }
 
     .copy-button {
         margin: 0;
-        margin-right: var(--size-3);
+        margin-right: 5px;
         margin-block:var(--size-1);
 
-        padding: 1px;
-        width: var(--size-5);
-        height: var(--size-5);
+        padding: 0px;
 
-        box-shadow: 0 0 1px 1px var(--surface-1);
-        background-color: var(--surface-3);
-        border-width: 0;
+        background-color: inherit;
+        border:none;
         text-align: center;
         justify-content: center;
         display: flex;
         align-items: center;
-        box-shadow: 0 0 1px 1px var(--primary);
+        outline: none!important;
+        border: none!important;
+        box-shadow: none!important;
+        stroke: 0!important;
         svg{
             display: flex;
             justify-self: center;
             fill:transparent;
             stroke: var(--primary);
-             stroke-width: 2px;
+            stroke-width: 2px;
             transition: all var(--animation-time) ease-in-out;
-            height: 1rem;
+            height: 1.2rem !important;
+            margin: 0 !important;
+            padding: 0 !important;
             width: auto;
         }
         &:hover{
-            background: var(--surface-1);
-            box-shadow: 0 0 1px 1px var(--accent);
+            outline: none!important;
+            border: none!important;
+            box-shadow: none!important;
+            stroke: 0!important;
             svg {
                 /*fill:var(--brand);*/
                 stroke: var(--surface-1);
                 stroke: var(--accent);
-
+                outline: none;
                 transition: all var(--animation-time) ease-in-out;
             }
             transition: all var(--animation-time) ease-in-out;
@@ -523,16 +530,6 @@ li:not(.blog-post li){
         border-radius: var(--size-4);
         height: 600px;
     }
-}
-
-.nav-links {
-    font-size: var(--font-size-2);
-    margin-inline-end: var(--size-2);
-}
-
-.active-link{
-    color: var(--accent);
-    text-decoration-color: var(--accent);
 }
 
 

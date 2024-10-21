@@ -50,8 +50,6 @@
             <input
                 type="button"
                 class="option dark"
-                onmouseover={() => changeTheme("dark", true)}
-                onmouseleave={() => changeTheme($prevousTheme, true)}
                 onclick={() => changeTheme("dark")}
                 aria-label="Dark"
                 value="dark"
@@ -62,8 +60,6 @@
             <input
                 type="button"
                 class="option light"
-                onmouseover={() => changeTheme("light", true)}
-                onmouseleave={() => changeTheme($prevousTheme)}
                 onclick={() => changeTheme("light")}
                 aria-label="Light"
                 value="light"
@@ -73,24 +69,58 @@
 </details>
 
 <style lang="scss">
+    .dropdown,
     summary {
-        min-width: 7rem;
+        outline: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: auto !important;
+        margin: 0 !important;
+        font-size: 13px;
+
+        ::after {
+            font-size: 13px !important;
+            height: 1.2rem !important;
+        }
+    }
+    .dropdown {
+        background-color: var(--surface-1) !important;
+    }
+
+    summary {
         text-align: center;
         display: flex;
-        justify-content: space-around;
         align-items: space-between;
-        text-transform: capitalize;
-        color: var(--text-3);
+        justify-content: space-between;
+        text-transform: uppercase;
+
+        color: var(--text-1) !important;
+        padding-inline: 0.5rem !important;
     }
 
     ul,
     li,
     input {
         width: 100%;
-        text-transform: capitalize;
+        text-transform: uppercase;
+        outline: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
     input {
         background-color: transparent;
+        font-size: 13px;
+        font-weight: 700;
+    }
+    li,
+    input {
+        height: 2.3rem !important;
+        display: block !important;
+    }
+    ul {
+        margin-top: 0.2rem !important;
     }
     .light:hover {
         background-color: var(--surface-2-light);
