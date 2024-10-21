@@ -76,15 +76,15 @@
         box-shadow: none !important;
         height: auto !important;
         margin: 0 !important;
-        font-size: 13px;
+        font-size: 14px;
+        text-transform: uppercase !important;
 
         ::after {
-            font-size: 13px !important;
-            height: 1.2rem !important;
+            font-size: 14px !important;
+            height: 20px !important;
         }
     }
     .dropdown {
-        background-color: var(--surface-1) !important;
     }
 
     summary {
@@ -92,31 +92,35 @@
         display: flex;
         align-items: space-between;
         justify-content: space-between;
-        text-transform: uppercase;
-
         color: var(--text-1) !important;
         padding-inline: 0.5rem !important;
+        background-color: inherit !important;
     }
 
     ul,
     li,
     input {
         width: 100%;
-        text-transform: uppercase;
         outline: none !important;
         border: none !important;
         box-shadow: none !important;
         padding: 0 !important;
         margin: 0 !important;
+        text-transform: uppercase;
+    }
+    ul {
+        background-color: var(--surface-3) !important;
+        border-radius: 0.7rem !important;
+        overflow: hidden;
     }
     input {
         background-color: transparent;
         font-size: 13px;
-        font-weight: 700;
+        font-weight: bold;
     }
     li,
     input {
-        height: 2.3rem !important;
+        height: 2.2rem !important;
         display: block !important;
     }
     ul {

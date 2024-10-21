@@ -25,6 +25,9 @@
 </div>
 
 <style lang="scss">
+    main{
+        margin-top: 2rem;
+    }
     .brand a {
         font-size: 14.5px;
         margin-left: var(--size-1);

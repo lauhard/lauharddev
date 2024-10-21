@@ -34,22 +34,21 @@
                 {@render (children as Snippet)()}
             </li>
         {/if}
-
     </ul>
-
 </nav>
 
 <style lang="scss">
     nav {
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        //box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         padding-right: var(--size-2);
         height: 2.5rem;
-        li{
+        li:not(.theme-switcher li){
             text-transform: uppercase;
+
             margin:0;
             padding:0;
             height: 100%;
-            font-size: 13px;
+            font-size: 14px;
             margin-right: 1rem;
             font-weight: bold;
             display: flex;
@@ -61,7 +60,12 @@
             a{
                 text-decoration: none;
                 text-align: center;
+                color:var(--text-1);
+ &:hover{
+                color:var(--primary);
             }
+            }
+
         }
     }
 </style>

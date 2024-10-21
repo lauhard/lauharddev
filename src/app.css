@@ -52,9 +52,9 @@ html {
   --font-mono: "Fira Mono", monospace;
   --side: 2rem;
   --content-width: 980px;
-  --base-font-size: 16px;
+  --base-font-size: 18px;
   --line-height: 1.5;
-  --letter-spacing: 0;
+  --letter-spacing: auto;
   --animation-time: 200ms;
   --scroll-padding-top: 20px;
   --shiki-color: var(--text-1);

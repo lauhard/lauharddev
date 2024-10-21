@@ -32,19 +32,19 @@
 <h1>{metadata.title}</h1>
 
 {#if metadata.excerpt}
-    <p>{metadata.excerpt}</p>
+    <p class="excerpt">{metadata.excerpt}</p>
 {/if}
 
 <div class="metadata">
-    <p><span class="descr">Published: </span> <span class="date">{metadata.created}</span></p>
+    <p><span class="descr">Published: </span> <span class="value">{metadata.created}</span></p>
     {#if metadata?.updated}
-        <p><span class="descr">Updated: </span> <span class="date">{metadata?.updated}</span></p>
+        <p><span class="descr">Updated: </span> <span class="value">{metadata?.updated}</span></p>
     {/if}
     {#if metadata.readingTime}
-        <p><span class="descr">Readig: </span> <span class="date">{metadata.readingTime.text}</span></p>
+        <p><span class="descr">Reading: </span> <span class="value">{metadata.readingTime.text}</span></p>
     {/if}
     {#if metadata.author}
-        <p><span class="descr">Author: </span> <span class="date">{metadata.author}</span></p>
+        <p><span class="descr">Author: </span> <span class="value">{metadata.author}</span></p>
     {/if}
 </div>
 
@@ -68,26 +68,30 @@
     p{
         margin: 0;
     }
+    .excerpt{
+        margin-bottom: 1rem;
+    }
     .descr{
         font-weight: var(--font-weight-8);
-        width: 90px;
+        width: 100px;
         display: inline-block;
         text-transform: uppercase;
         font-size: var(--font-size-0);
+
     }
     .metadata{
-        margin-block: 1rem;
-        .date{
+
+        .value{
             font-size: 0.9rem;
+             font-size: 16px;
         }
     }
     .categories {
         margin-bottom: 2rem;
         .category{
             margin-right: 0.5rem;
-
+            font-size: 16px;
             text-transform: capitalize;
-            font-size: var(--font-size-1);
             &::after{
                 content: ',';
             }
