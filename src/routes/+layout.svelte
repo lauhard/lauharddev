@@ -25,11 +25,8 @@
 </div>
 
 <style lang="scss">
-    main{
-        margin-top: 2rem;
-    }
     .brand a {
-        font-size: 14.5px;
+        font-size: .82rem; //14.5
         margin-left: var(--size-1);
         font-weight: bold;
         text-decoration: none;
@@ -51,6 +48,35 @@
             width: inherit;
             max-width: var(--content-width);
             align-self: center;
+            margin:var(--top);
         }
     }
+    @media (max-width: 575.98px) {
+        main{
+            --side: 0 1rem;
+        }
+    }
+
+    // Small devices (landscape phones, less than 768px)
+    @media (max-width: 767.98px) {
+        main {
+            --base-font-size:6px !important;
+        }
+    }
+
+    // Medium devices (tablets, less than 992px)
+    @media (max-width: 991.98px) {
+        main{
+            padding: var(--side);
+            --top:1.5rem;
+        }
+     }
+
+    // Large devices (desktops, less than 1200px)
+    @media (max-width: 1199.98px) {
+        main {
+            margin-top: 2rem;
+        }
+    }
+
 </style>

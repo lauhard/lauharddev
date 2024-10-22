@@ -49,6 +49,8 @@
             padding:0;
             height: 100%;
             font-size: 14px;
+            font-size: .77rem; //14px;
+
             margin-right: 1rem;
             font-weight: bold;
             display: flex;
@@ -61,9 +63,9 @@
                 text-decoration: none;
                 text-align: center;
                 color:var(--text-1);
- &:hover{
-                color:var(--primary);
-            }
+                &:hover{
+                    color:var(--primary);
+                }
             }
 
         }

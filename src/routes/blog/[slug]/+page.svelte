@@ -29,7 +29,7 @@
 {/if}
 
 
-<h1>{metadata.title}</h1>
+<h2>{metadata.title}</h2>
 
 {#if metadata.excerpt}
     <p class="excerpt">{metadata.excerpt}</p>
@@ -64,9 +64,10 @@
 </div>
 
 <style lang="scss">
-
-    p{
-        margin: 0;
+    .metadata, .excerpt{
+        p {
+            margin: 0;
+        }
     }
     .excerpt{
         margin-bottom: 1rem;
@@ -80,17 +81,16 @@
 
     }
     .metadata{
-
         .value{
             font-size: 0.9rem;
-             font-size: 16px;
+            font-size: .89rem; //16px
         }
     }
     .categories {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         .category{
             margin-right: 0.5rem;
-            font-size: 16px;
+            font-size: .89rem;
             text-transform: capitalize;
             &::after{
                 content: ',';
@@ -100,8 +100,9 @@
                     content: '';
                 }
             }
-
+            /*&::before{
+                content: '#';
+            }*/
         }
     }
-
 </style>

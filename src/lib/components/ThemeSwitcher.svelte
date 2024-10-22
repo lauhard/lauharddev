@@ -77,11 +77,14 @@
         height: auto !important;
         margin: 0 !important;
         font-size: 14px;
+        font-size: 0.77rem; //14px;
         text-transform: uppercase !important;
 
         ::after {
             font-size: 14px !important;
+            font-size: 0.77rem; //14px;
             height: 20px !important;
+            height: 1.05rem !important;
         }
     }
     .dropdown {
@@ -116,6 +119,7 @@
     input {
         background-color: transparent;
         font-size: 13px;
+        font-size: 0.73rem;
         font-weight: bold;
     }
     li,
