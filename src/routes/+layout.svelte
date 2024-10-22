@@ -4,21 +4,27 @@
     import Navigation from "$lib/components/Navigation.svelte";
     import ThemeSwitcher from "$lib/components/ThemeSwitcher.svelte";
     import { setTheme } from "$lib/stores/themeStore.svelte";
+    import Aside from "$lib/components/Aside.svelte";
     let { children, data } = $props();
     setTheme(data.theme);
-
+    let innerWidth = $state(0);
+    let show= $state(false);
 </script>
 
+<svelte:window bind:innerWidth={innerWidth} />
 
 <div class="app">
-    <Navigation >
-        <ThemeSwitcher></ThemeSwitcher>
-        {#snippet brand()}
-            <li class="brand">
-                <a href="/">lauhard.dev</a>
-            </li>
-        {/snippet}
-    </Navigation>
+        {#if show}
+            <Aside bind:show={show}></Aside>
+        {/if}
+        <Navigation bind:show={show}>
+            <ThemeSwitcher></ThemeSwitcher>
+            {#snippet brand()}
+                <li class="brand">
+                    <a href="/">lauhard.dev</a>
+                </li>
+            {/snippet}
+        </Navigation>
     <main>
         {@render children()}
     </main>

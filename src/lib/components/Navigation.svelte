@@ -1,10 +1,13 @@
 <script lang="ts">
-    import * as config from "$lib/project.config";
-        import type { Route } from "../../app";
+    import type { Route } from "../../app";
     import routes from "$lib/routes";
     import { page } from "$app/stores";
     import type { Snippet } from "svelte";
-    let { children = null, brand = null, style = "", theme = "", ...props } = $props();
+    import { SidebarOpenIcon } from "lucide-svelte";
+
+    let { children = null, brand = null, style = "", theme = "", show = $bindable(), ...props } = $props();
+    let innerWidth = $state(0);
+
     let isActive = (routePath: string) => {
         if (
             $page.url.pathname == routePath ||
@@ -15,27 +18,50 @@
     };
 </script>
 
+<svelte:window bind:innerWidth={innerWidth} />
+
 <nav>
     <ul class="brand">
         {@render  (brand as Snippet)()}
     </ul>
     <ul>
-        {#each routes as route}
-            <li class:active={isActive(route.path)}>
-                <a
-                    href={(route as Route).path}
-                >
-                {route.name}
-                </a>
-            </li>
-        {/each}
-        {#if children}
-            <li class="theme-switcher">
-                {@render (children as Snippet)()}
-            </li>
+        {#if innerWidth > 800}
+            {#each routes as route}
+                <li class:active={isActive(route.path)}>
+                    <a
+                        href={(route as Route).path}
+                    >
+                    {route.name}
+                    </a>
+                </li>
+            {/each}
+            {@render themeSwticher()}
+        {:else}
+            {@render themeSwticher()}
+            <button
+                class="aside-button"
+                onclick={()=>show=!show}
+                onkeydown={()=>show=!show}
+                type="button"
+                aria-label="toggle menu"
+                aria-live="polite"
+                title="Toggle Menu"
+            >
+                <SidebarOpenIcon></SidebarOpenIcon>
+            </button>
         {/if}
     </ul>
 </nav>
+
+
+{#snippet themeSwticher()}
+    {#if children}
+        <li class="theme-switcher">
+            {@render (children as Snippet)()}
+        </li>
+    {/if}
+{/snippet}
+
 
 <style lang="scss">
     nav {
@@ -67,7 +93,14 @@
                     color:var(--primary);
                 }
             }
-
+        }
+        .aside-button{
+            background: inherit;
+            border:none;
+            margin: 0;
+            padding: 0;
+            box-shadow: none;
+            margin-right:1rem;
         }
     }
 </style>
