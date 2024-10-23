@@ -98,6 +98,7 @@
         color: var(--text-1) !important;
         padding-inline: 0.5rem !important;
         background-color: inherit !important;
+        font-weight: bold;
     }
 
     ul,

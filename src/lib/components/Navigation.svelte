@@ -3,7 +3,7 @@
     import routes from "$lib/routes";
     import { page } from "$app/stores";
     import type { Snippet } from "svelte";
-    import { SidebarOpenIcon } from "lucide-svelte";
+    import { Menu } from "lucide-svelte";
 
     let { children = null, brand = null, style = "", theme = "", show = $bindable(), ...props } = $props();
     let innerWidth = $state(0);
@@ -38,17 +38,27 @@
             {@render themeSwticher()}
         {:else}
             {@render themeSwticher()}
-            <button
-                class="aside-button"
-                onclick={()=>show=!show}
-                onkeydown={()=>show=!show}
-                type="button"
-                aria-label="toggle menu"
-                aria-live="polite"
-                title="Toggle Menu"
-            >
-                <SidebarOpenIcon></SidebarOpenIcon>
-            </button>
+            <li class="aside-button-wrapper">
+                <button
+                    class="aside-button"
+                    onclick={()=>show=!show}
+                    onkeydown={()=>show=!show}
+                    type="button"
+                    aria-label="toggle menu"
+                    aria-live="polite"
+                    title="Toggle Menu"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg"
+
+                        viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-menu">
+                        <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </li>
+
         {/if}
     </ul>
 </nav>
@@ -66,11 +76,13 @@
 <style lang="scss">
     nav {
         //box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        padding-right: var(--size-2);
         height: 2.5rem;
+        ul{
+            margin: 0;
+            padding: 0;
+        }
         li:not(.theme-switcher li){
             text-transform: uppercase;
-
             margin:0;
             padding:0;
             height: 100%;
@@ -84,23 +96,27 @@
             align-items: center;
             text-align: center;
             height: 100%;
-
             a{
                 text-decoration: none;
                 text-align: center;
                 color:var(--text-1);
                 &:hover{
-                    color:var(--primary);
+                    color:var(--accent);
                 }
             }
         }
+
         .aside-button{
             background: inherit;
             border:none;
             margin: 0;
             padding: 0;
             box-shadow: none;
-            margin-right:1rem;
+            .lucide-menu{
+                margin-bottom: .25rem;
+                height: 1.25rem;
+                stroke-width: 2.5px;
+            }
         }
     }
 </style>

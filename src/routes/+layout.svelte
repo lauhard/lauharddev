@@ -7,11 +7,9 @@
     import Aside from "$lib/components/Aside.svelte";
     let { children, data } = $props();
     setTheme(data.theme);
-    let innerWidth = $state(0);
     let show= $state(false);
 </script>
 
-<svelte:window bind:innerWidth={innerWidth} />
 
 <div class="app">
         {#if show}
@@ -33,10 +31,12 @@
 <style lang="scss">
     .brand a {
         font-size: .82rem; //14.5
+        font-size: 1rem; //14.5
         margin-left: var(--size-1);
-        font-weight: bold;
+        font-weight: bolder;
         text-decoration: none;
         text-transform: uppercase;
+        color:var(--brand);
         &:hover {
             color:var(--accent);
         }

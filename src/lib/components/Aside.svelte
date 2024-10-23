@@ -3,8 +3,7 @@
     import { page } from "$app/stores";
     import routes from "$lib/routes";
     import type { Route } from "../../app";
-    import { createEventDispatcher } from "svelte";
-    import { SidebarCloseIcon } from "lucide-svelte";
+    import { X } from "lucide-svelte";
     let { show = $bindable() } = $props();
 
     let isActive = (routePath: string) => {
@@ -17,29 +16,39 @@
     };
     const translateX = -50;
     const close = () => {
+        open=false;
         setTimeout(() => {
             show = false;
-        }, 300); //fix: for routing to work properly
+        }, 300);
     };
+
+    let open =$state(false);
+    $effect(()=>{
+        if(show){
+            setTimeout(() => {
+                open= show as boolean
+            }, 300); //fix: for r
+        }
+    })
 </script>
 
 <!-- svelte-ignore slot_element_deprecated -->
-<aside class:show>
-    <ul class="controls">
-        <li class="brand">
-        </li>
+<aside class:show class:open={open} >
+    <ul class="controls" >
+
         <li>
             <button
-                onmousedown={close}
-                onkeydown={close}
-                ontouchstart={close}
+                onmousedown={()=>setTimeout(()=>{
+                        close()
+                    },300)}
+
                 class="close"
                 type="button"
                 title="Close Aside"
                 aria-live="polite"
                 aria-label="button close"
             >
-                <SidebarCloseIcon></SidebarCloseIcon>
+                <X></X>
             </button>
         </li>
     </ul>
@@ -52,9 +61,9 @@
                 <a
                     class="route-aside"
                     href={(route as Route).path}
-                    onmousedown={close}
-                    onkeydown={close}
-                    ontouchstart={close}
+                    onmousedown={()=>setTimeout(()=>{
+                        close()
+                    },300)}
                 >
                 {route.name}
                 </a>
@@ -69,28 +78,28 @@
         --animation-time: 400ms;
         position: fixed;
         top: 0;
-        left: 0;
         margin: 0;
         padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        width: 100%;
+        width: 0%;
         height: 100vh;
-        background-color: var(--surface-1);
-        transform: translateX(-100%);
-        transition: transform var(--animation-time) ease-in-out;
+        background: var(--surface-1);
+        left: -100%;
         z-index: 100;
+        transition: all 400ms ease-in-out;
+
         .routes-aside {
             padding: 0;
             margin: 0;
-            margin-top: var(--size-10);
             display: flex;
             flex-direction: column;
             height: 100%;
             width: 100%;
             list-style: none;
+            margin-top: 4rem;
             li {
                 margin: 0;
                 padding: 0;
@@ -98,51 +107,44 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                text-align: center;
                 width: 100%;
-                height: 2rem;
+                height: 4rem;
+
+                .route-aside {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: var(--font-size-3);
+                    font-weight: var(--font-weight-6);
+                    transition: all var(--animation-time) ease-in-out;
+
+                }
             }
         }
-        .controls {
-            margin: 0;
-            padding: 0;
+        .controls{
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: row-reverse;
             width: 100%;
-            list-style: none;
-            margin-top: .55rem;
-
-            li {
-                padding: 0;
-                margin: 0;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
+            height: 2rem;
+            margin:0;
+            padding: 0;
             .close {
                 margin: 0;
                 padding: 0;
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-inline: var(--size-3);
                 background-color: inherit;
                 border:none;
                 box-shadow: none;
             }
-            .brand {
-                margin-left: -0.3rem;
-            }
         }
     }
-    .active {
-        color: var(--brand);
-    }
-    .show {
-        .controls {
-            z-index: 1000;
-        }
+
+    .open {
+        width:100%;
+        left:0%;
         .routes-aside {
             li {
                 position: relative;
@@ -151,26 +153,15 @@
                 animation-delay: 500ms;
             }
         }
-        transform: translateX(0);
+        transition:all 400ms ease-out !important;
     }
-    .route-aside {
-        font-size: var(--font-size-3);
-        width: 100%;
-        text-align: center;
-        padding-block: var(--size-6);
-        font-weight: var(--font-weight-6);
-        transition: all var(--animation-time) ease-in-out;
-    }
-     .route-aside .active {
-        color: var(--accent-1);
-        font-size: var(--font-size-3);
-        transition: all var(--animation-time) ease-in-out;
-    }
+
+
 
     @keyframes slideIn {
         from {
             opacity: 0;
-            background: var(--accent-1);
+            background: var(--primary);
         }
         to {
             transform: translateX(0);
