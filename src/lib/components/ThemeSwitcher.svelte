@@ -76,10 +76,7 @@
         box-shadow: none !important;
         height: auto !important;
         margin: 0 !important;
-        font-size: 14px;
-        font-size: 0.77rem; //14px;
         text-transform: uppercase !important;
-
         ::after {
             font-size: 14px !important;
             font-size: 0.77rem; //14px;
@@ -87,16 +84,11 @@
             height: 1.05rem !important;
         }
     }
-    .dropdown {
-    }
-
     summary {
-        text-align: center;
         display: flex;
-        align-items: space-between;
-        justify-content: space-between;
-        color: var(--text-1) !important;
-        padding-inline: 0.5rem !important;
+        align-items: space-between !important;
+        color: var(--pico-primary) !important;
+        padding-inline: 0rem !important;
         background-color: inherit !important;
         font-weight: bold;
     }

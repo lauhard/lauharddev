@@ -20,7 +20,7 @@
 
 <svelte:window bind:innerWidth={innerWidth} />
 
-<nav>
+<nav class="navigation">
     <ul class="brand">
         {@render  (brand as Snippet)()}
     </ul>
@@ -80,32 +80,30 @@
         ul{
             margin: 0;
             padding: 0;
-        }
-        li:not(.theme-switcher li){
-            text-transform: uppercase;
-            margin:0;
-            padding:0;
-            height: 100%;
-            font-size: 14px;
-            font-size: .77rem; //14px;
-
-            margin-right: 1rem;
-            font-weight: bold;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        li {
+            margin:0;
+            padding:0;
+            display: flex;
+            text-transform: uppercase;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            height: 100%;
+            font-size: 14px;
+            font-size: .77rem; //14px;
+            text-align: center;
+            margin-right: 1rem;
             text-align: center;
             height: 100%;
             a{
                 text-decoration: none;
                 text-align: center;
-                color:var(--text-1);
-                &:hover{
-                    color:var(--accent);
-                }
             }
         }
-
         .aside-button{
             background: inherit;
             border:none;

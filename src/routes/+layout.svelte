@@ -29,16 +29,22 @@
 </div>
 
 <style lang="scss">
-    .brand a {
-        font-size: .82rem; //14.5
-        font-size: 1rem; //14.5
-        margin-left: var(--size-1);
-        font-weight: bolder;
-        text-decoration: none;
-        text-transform: uppercase;
-        color:var(--brand);
-        &:hover {
-            color:var(--accent);
+    .brand {
+        margin: 0;
+        padding: 0;
+        margin-left: 1rem;
+        a {
+            margin: 0;
+            padding: 0;
+            font-size: .82rem; //14.5
+            font-size: 1rem; //14.5
+            font-weight: bolder;
+            text-decoration: none;
+            text-transform: uppercase;
+            color:var(--brand);
+            &:hover {
+                color:var(--accent);
+            }
         }
     }
     .app {
