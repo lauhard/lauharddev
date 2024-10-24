@@ -91,6 +91,11 @@
         padding-inline: 0rem !important;
         background-color: inherit !important;
         font-weight: bold;
+        font-size: 0.77rem; //14px;
+        text-align: center;
+        &:hover {
+            color: var(--pico-primary-hover) !important;
+        }
     }
 
     ul,
@@ -121,13 +126,15 @@
         display: block !important;
     }
     ul {
-        margin-top: 0.2rem !important;
+        margin-top: 0.3rem !important;
     }
     .light:hover {
         background-color: var(--surface-2-light);
         color: var(--text-2-light);
+        border-radius: 0 !important;
     }
     .dark:hover {
+        border-radius: 0 !important;
         background-color: var(--surface-2-dark);
         color: var(--text-2-dark);
     }

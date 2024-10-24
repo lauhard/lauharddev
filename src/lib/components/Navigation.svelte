@@ -66,7 +66,7 @@
 
 {#snippet themeSwticher()}
     {#if children}
-        <li class="theme-switcher">
+        <li >
             {@render (children as Snippet)()}
         </li>
     {/if}
@@ -77,14 +77,19 @@
     nav {
         //box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         height: 2.5rem;
+        background: linear-gradient(125deg, var(--surface-3) 8.4rem, var(--surface-1) 0%);
+        border-top:.3rem solid var(--surface-3);
+        box-sizing: border-box;
         ul{
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+
         }
         li {
+
             margin:0;
             padding:0;
             display: flex;
