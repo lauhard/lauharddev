@@ -43,7 +43,7 @@
             <a href="{$page.url}/{blogPost.slug}" title={blogPost.title}>
                 {blogPost.title}
             </a>
-            <div>
+            <div class="categories">
                 {#each blogPost.categories as item}
                     <span class="category">{item}</span>
                 {/each}
@@ -63,16 +63,21 @@
                 padding: 0;
             }
             margin-bottom: 2rem;
-            .category {
+            .categories {
                 margin: 0;
                 padding: 0;
-                background-color: var(--brand);
-                padding: 0.25rem 0.6rem;
-                border-radius: 0.7rem;
-                margin-right: 0.3rem;
-                font-weight: bold;
-                font-size: 0.65rem;
-                color: var(--text-2-light);
+                margin-top: 0.5rem;
+                .category {
+                    margin: 0;
+                    padding: 0;
+                    background-color: var(--brand);
+                    padding: 0.25rem 0.6rem;
+                    border-radius: 0.7rem;
+                    margin-right: 0.3rem;
+                    font-weight: bold;
+                    font-size: 0.65rem;
+                    color: var(--text-2-light);
+                }
             }
         }
     }

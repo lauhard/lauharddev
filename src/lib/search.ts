@@ -24,5 +24,5 @@ export const searchIndex = (query: string) => {
     const match = query.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
     const matches = index.search(match);
     const results = matches.map((i) => result[i as number]);
-    return results.map(({ slug, title, content }) => { return { slug, title, content }; });
+    return results.map(({ slug, title, content, categories }) => { return { slug, title, content, categories }; });
 };
