@@ -3,10 +3,9 @@
     import routes from "$lib/routes";
     import { page } from "$app/stores";
     import type { Snippet } from "svelte";
-    import { Menu } from "lucide-svelte";
 
     let { children = null, brand = null, style = "", theme = "", show = $bindable(), ...props } = $props();
-    let innerWidth = $state(0);
+    let innerWidth = $state(800);
 
     let isActive = (routePath: string) => {
         if (
@@ -25,18 +24,7 @@
         {@render  (brand as Snippet)()}
     </ul>
     <ul>
-        {#if innerWidth > 800}
-            {#each routes as route}
-                <li class:active={isActive(route.path)}>
-                    <a
-                        href={(route as Route).path}
-                    >
-                    {route.name}
-                    </a>
-                </li>
-            {/each}
-            {@render themeSwticher()}
-        {:else}
+        {#if innerWidth < 800 && innerWidth }
             {@render themeSwticher()}
             <li class="aside-button-wrapper">
                 <button
@@ -58,7 +46,17 @@
                         <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                 </button>
             </li>
-
+        {:else}
+            {#each routes as route}
+                <li class:active={isActive(route.path)}>
+                    <a
+                        href={(route as Route).path}
+                    >
+                    {route.name}
+                    </a>
+                </li>
+            {/each}
+            {@render themeSwticher()}
         {/if}
     </ul>
 </nav>

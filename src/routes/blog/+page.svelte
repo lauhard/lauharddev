@@ -2,8 +2,17 @@
     import * as config from "$lib/project.config";
     import { page } from "$app/stores";
     import type { Metadata } from "../../app.js";
+    import MySearch from "$lib/components/MySearch.svelte";
     let { data } = $props();
     const blogPosts = data.blogPosts as Metadata[];
+    let results: Metadata[] = $state(blogPosts);
+    let searchTerm = $state("");
+
+    $effect(() => {
+        if (results.length === 0 && searchTerm.length == 0) {
+            results = blogPosts;
+        }
+    });
 </script>
 
 <svelte:head>
@@ -26,12 +35,19 @@
     ><span>Blog Posts</span>
 </h2>
 
+<MySearch bind:results bind:searchTerm></MySearch>
+
 <ul class="blog-posts">
-    {#each blogPosts as blogPost}
+    {#each results as blogPost}
         <li class="blog-post">
-            <a href="{$page.url}/{blogPost.slug}" title={blogPost.title}
-                >{blogPost.title}</a
-            >
+            <a href="{$page.url}/{blogPost.slug}" title={blogPost.title}>
+                {blogPost.title}
+            </a>
+            <div>
+                {#each blogPost.categories as item}
+                    <span class="category">{item}</span>
+                {/each}
+            </div>
         </li>
     {/each}
 </ul>
@@ -39,6 +55,26 @@
 <style lang="scss">
     .blog-posts {
         width: 100%;
+        .blog-post {
+            margin: 0;
+            padding: 0;
+            a {
+                margin: 0;
+                padding: 0;
+            }
+            margin-bottom: 2rem;
+            .category {
+                margin: 0;
+                padding: 0;
+                background-color: var(--brand);
+                padding: 0.25rem 0.6rem;
+                border-radius: 0.7rem;
+                margin-right: 0.3rem;
+                font-weight: bold;
+                font-size: 0.65rem;
+                color: var(--text-2-light);
+            }
+        }
     }
     span {
         text-transform: capitalize;

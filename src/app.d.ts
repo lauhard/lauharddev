@@ -23,6 +23,7 @@ declare global {
             isPublic: boolean;
             target?: string;
         }
+
         interface Metadata {
             title: string
             slug: string

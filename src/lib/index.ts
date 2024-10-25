@@ -1,6 +1,8 @@
 // place files you want to import through the `$lib` alias in this folder.
 //disable ssr
 import type { Metadata } from '../app';
+import matter from 'gray-matter';
+import removeMd from 'remove-markdown';
 
 // use vite glob to fetch all md files
 export const getBlogPosts = async () => {
@@ -13,7 +15,6 @@ export const getBlogPosts = async () => {
         const file = globs[path]
         if (file && typeof file === 'object' && 'metadata' in file && slug) {
             const metadata = (file as { metadata: Metadata }).metadata
-            console.log("fetchBlogPosts", metadata);
             const post = { ...metadata, slug }
             blogPosts.push(post)
         }
@@ -55,22 +56,23 @@ export const getPostsByCategory = async (category: string) => {
     return posts;
 }
 
-
-export const getPostsBySlugWildcard = async (slug: string) => {
-    const globs = import.meta.glob("/src/lib/posts/*/*.md", { eager: true });
-    for (const path in globs) {
-        if (path.includes(slug)) {
-            console.log("getPostBySlug", path, slug);
-            const post = await await import(path);
-            console.log("getPostBySlug", post);
-            return {
-                post: post.default,
-                metadata: post.metadata
-            }
+export const getPosts = async () => {
+    const globs = import.meta.glob("/src/lib/posts/*/*.md", { as: 'raw', eager: true });
+    const posts = Object.entries(globs).map(([path, file]) => {
+        const fmd = matter(file);
+        const slug = path.split('/')?.pop()?.replace('.md', '') ?? '';
+        let content = removeMd(fmd.content);
+        content = content.replace(/\n{2,}/g, '\n').replace(/\s+/g, ' ').trim();
+        return {
+            title: fmd.data.title,
+            slug: slug,
+            categories: fmd.data.categories,
+            content: content,
         }
-    }
-    throw new Error("Post not found");
+    });
+    return posts;
 }
+
 
 // navigator needs a secure context and https to work
 export const copy2ClipBoard = async (element: HTMLElement) => {
