@@ -7,6 +7,7 @@ categories:
     - embedded
     - svelte
     - test
+    - blub
 published: false
 ---
 
@@ -45,6 +46,10 @@ The `+hooks.server.ts` file is the right place to do this, because it runs on ev
 Add the following code to the `+hooks.server.ts` file.  
 
 ![Text]({MyImage})  
+
+```css  
+    background-color: red;
+```
 
 ```ts
 //src/hooks.server.ts

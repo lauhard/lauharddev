@@ -39,9 +39,11 @@
             font-size: .82rem; //14.5
             font-size: 1rem; //14.5
             font-weight: bolder;
-            text-decoration: none;
             text-transform: uppercase;
             color:var(--brand);
+            margin-bottom: .2rem;
+            text-decoration: none;
+            //text-decoration: none;
             &:hover {
                 color:var(--accent);
             }

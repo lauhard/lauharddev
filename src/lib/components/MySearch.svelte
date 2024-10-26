@@ -38,9 +38,11 @@
         />
     </div>
     {#if results.length > 0 && search === "ready" && searchTerm.length > 0}
-        <pre>
-            {JSON.stringify(results, null, 4)}
-        </pre>
+        <!--
+            <pre>
+                {JSON.stringify(results, null, 4)}
+            </pre>
+        -->
     {/if}
 {/if}
 

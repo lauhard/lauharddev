@@ -20,19 +20,7 @@
 </svelte:head>
 
 <h2>
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-book-open"
-        ><path d="M12 7v14" /><path
-            d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
-        /></svg
-    ><span>Blog Posts</span>
+    <span>Blog Posts</span>
 </h2>
 
 <MySearch bind:results bind:searchTerm></MySearch>
@@ -62,33 +50,40 @@
                 margin: 0;
                 padding: 0;
             }
-            margin-bottom: 2rem;
+            margin-top: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: dashed 1px var(--accent);
             .categories {
                 margin: 0;
                 padding: 0;
                 margin-top: 0.5rem;
+                display: flex;
+                justify-content: flex-start;
                 .category {
                     margin: 0;
                     padding: 0;
                     background-color: var(--brand);
-                    padding: 0.25rem 0.6rem;
+                    padding: 0rem 0.6rem;
                     border-radius: 0.7rem;
                     margin-right: 0.3rem;
                     font-weight: bold;
-                    font-size: 0.65rem;
+                    font-size: 0.6rem;
+                    line-height: 0.6rem;
+                    text-align: center;
+                    display: inline-flex;
+                    align-items: center;
+                    height: 1.3rem;
                     color: var(--text-2-light);
                 }
             }
         }
     }
     span {
-        text-transform: capitalize;
+        text-transform: uppercase;
         display: inline-block;
-        margin-left: 0.5rem;
-    }
-    .lucide-book-open {
-        margin-bottom: 5px;
-        height: 1.5rem;
-        stroke-width: 2px;
+        font-size: 1.2rem;
+        font-weight: bolder;
+        letter-spacing: 0;
+        color: var(--accent);
     }
 </style>

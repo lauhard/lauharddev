@@ -12,7 +12,7 @@ export const createIndex = (data: Metadata[]) => {
         tokenize: 'forward',
     });
     data.forEach((item, i) => {
-        const hit = `${item.title} ${item.content}`;
+        const hit = `${item.title} ${item.content} ${item.categories.join(' ')}`;
         index.add(i, hit);
     });
 
