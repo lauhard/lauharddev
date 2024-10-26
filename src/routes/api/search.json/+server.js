@@ -1,4 +1,4 @@
-import { getPosts } from "$lib";
+import { getSearchPosts } from "$lib";
 import { json } from "@sveltejs/kit";
 export const prerender = true;
 export const GET = async () => {
@@ -6,7 +6,7 @@ export const GET = async () => {
      * @type {{ title: any; content: string; categories: string, slug: string }[]}
      */
     let posts = [];
-    const blogPosts = await getPosts();
+    const blogPosts = await getSearchPosts();
     blogPosts.forEach((post) => {
         posts.push({
             title: post.title,

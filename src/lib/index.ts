@@ -56,7 +56,7 @@ export const getPostsByCategory = async (category: string) => {
     return posts;
 }
 
-export const getPosts = async () => {
+export const getSearchPosts = async () => {
     const globs = import.meta.glob("/src/lib/posts/*/*.md", { as: 'raw', eager: true });
     const posts = Object.entries(globs).map(([path, file]) => {
         const fmd = matter(file);

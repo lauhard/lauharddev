@@ -1,6 +1,6 @@
 import { redirect } from "@sveltejs/kit";
 import type { LayoutServerLoad } from "./$types";
-export const prerender = true;
+//export const prerender = true;
 export const load: LayoutServerLoad = async ({ cookies, url }) => {
     const _theme = cookies.get('data-theme') || "";
     if (url.pathname == '/') redirect(307, '/blog');
