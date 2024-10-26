@@ -75,8 +75,8 @@
     nav {
         //box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         height: 2.5rem;
-        background: linear-gradient(125deg, var(--surface-3) 8.4rem, var(--surface-1) 0%);
-        border-top:.3rem solid var(--surface-3);
+        background: linear-gradient(125deg, var(--primary) 8.4rem, var(--surface-1) 0%);
+        border-top:.3rem solid var(--primary);
         box-sizing: border-box;
         ul{
             margin: 0;

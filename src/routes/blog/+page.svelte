@@ -20,7 +20,7 @@
 </svelte:head>
 
 <h2>
-    <span>Blog Posts</span>
+    <span class="heading">Blog Posts</span>
 </h2>
 
 <MySearch bind:results bind:searchTerm></MySearch>
@@ -28,6 +28,7 @@
 <ul class="blog-posts">
     {#each results as blogPost}
         <li class="blog-post">
+            <span class="date">{blogPost.created}</span>
             <a href="{$page.url}/{blogPost.slug}" title={blogPost.title}>
                 {blogPost.title}
             </a>
@@ -36,6 +37,10 @@
                     <span class="category">{item}</span>
                 {/each}
             </div>
+            <div class="excerpt">
+                {blogPost.excerpt}
+            </div>
+            <!-- content here -->
         </li>
     {/each}
 </ul>
@@ -46,9 +51,15 @@
         .blog-post {
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            margin-inline: 1rem;
+
             a {
                 margin: 0;
                 padding: 0;
+                font-weight: bold;
+                font-size: 1.2rem;
             }
             margin-top: 1.5rem;
             padding-bottom: 0.75rem;
@@ -74,11 +85,24 @@
                     align-items: center;
                     height: 1.3rem;
                     color: var(--text-2-light);
+                    text-transform: uppercase;
                 }
+            }
+            .date {
+                font-size: 0.8rem;
+                font-weight: bold;
+                color: var(--accent);
+            }
+            .excerpt {
+                font-size: 1rem;
+                font-weight: normal;
+                color: var(--text-3);
+                opacity: 0.8;
+                margin-top: 1rem;
             }
         }
     }
-    span {
+    .heading {
         text-transform: uppercase;
         display: inline-block;
         font-size: 1.2rem;

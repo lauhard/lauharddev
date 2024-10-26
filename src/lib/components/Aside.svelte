@@ -27,7 +27,7 @@
         if(show){
             setTimeout(() => {
                 open= show as boolean
-            }, 300); //fix: for r
+            }, 0); //fix: for r
         }
     })
 </script>

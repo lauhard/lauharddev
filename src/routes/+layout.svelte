@@ -38,14 +38,15 @@
             padding: 0;
             font-size: .82rem; //14.5
             font-size: 1rem; //14.5
-            font-weight: bolder;
             text-transform: uppercase;
-            color:var(--brand);
+            letter-spacing: 0px;
+            color: var(--surface-1);
+            font-weight: bolder;
             margin-bottom: .2rem;
             text-decoration: none;
             //text-decoration: none;
             &:hover {
-                color:var(--accent);
+                color:var(--text-2);
             }
         }
     }
