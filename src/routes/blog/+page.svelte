@@ -19,9 +19,7 @@
     <title>{config.title}</title>
 </svelte:head>
 
-<h2>
-    <span class="heading">Blog Posts</span>
-</h2>
+<h2 class="heading">Blog Posts</h2>
 
 <MySearch bind:results bind:searchTerm></MySearch>
 
@@ -73,7 +71,7 @@
                 .category {
                     margin: 0;
                     padding: 0;
-                    background-color: var(--brand);
+                    background-color: var(--primary);
                     padding: 0rem 0.6rem;
                     border-radius: 0.7rem;
                     margin-right: 0.3rem;
@@ -91,13 +89,10 @@
             .date {
                 font-size: 0.8rem;
                 font-weight: bold;
-                color: var(--accent);
             }
             .excerpt {
                 font-size: 1rem;
                 font-weight: normal;
-                color: var(--text-3);
-                opacity: 0.8;
                 margin-top: 1rem;
             }
         }
@@ -105,9 +100,5 @@
     .heading {
         text-transform: uppercase;
         display: inline-block;
-        font-size: 1.2rem;
-        font-weight: bolder;
-        letter-spacing: 0;
-        color: var(--accent);
     }
 </style>

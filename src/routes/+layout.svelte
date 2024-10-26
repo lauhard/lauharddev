@@ -29,6 +29,23 @@
 </div>
 
 <style lang="scss">
+    .app {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        height: 100%;
+        width: 100%;
+        background:linear-gradient(135deg, var(--surface-1) 0%, var(--surface-2) 90%, var(--surface-3) 0%);
+        main {
+            display: flex;
+            flex-direction: column;
+            height: inherit;
+            width: inherit;
+            max-width: var(--content-width);
+            align-self: center;
+            margin:var(--top);
+        }
+    }
     .brand {
         margin: 0;
         padding: 0;
@@ -40,32 +57,17 @@
             font-size: 1rem; //14.5
             text-transform: uppercase;
             letter-spacing: 0px;
-            color: var(--surface-1);
+            color: var(--primary);
             font-weight: bolder;
             margin-bottom: .2rem;
             text-decoration: none;
             //text-decoration: none;
             &:hover {
-                color:var(--text-2);
+                color:var(--accent);
             }
         }
     }
-    .app {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        height: 100%;
-        width: 100%;
-        main {
-            display: flex;
-            flex-direction: column;
-            height: inherit;
-            width: inherit;
-            max-width: var(--content-width);
-            align-self: center;
-            margin:var(--top);
-        }
-    }
+
     @media (max-width: 575.98px) {
         main{
             --side: 0 1rem;

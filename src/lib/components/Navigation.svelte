@@ -23,8 +23,9 @@
     <ul class="brand">
         {@render  (brand as Snippet)()}
     </ul>
-    <ul>
+
         {#if innerWidth < 800 && innerWidth }
+        <ul>
             {@render themeSwticher()}
             <li class="aside-button-wrapper">
                 <button
@@ -46,7 +47,9 @@
                         <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                 </button>
             </li>
+        </ul>
         {:else}
+            <ul class="routes-desktop">
             {#each routes as route}
                 <li class:active={isActive(route.path)}>
                     <a
@@ -57,8 +60,8 @@
                 </li>
             {/each}
             {@render themeSwticher()}
+            </ul>
         {/if}
-    </ul>
 </nav>
 
 
@@ -75,8 +78,9 @@
     nav {
         //box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         height: 2.5rem;
-        background: linear-gradient(125deg, var(--primary) 8.4rem, var(--surface-1) 0%);
-        border-top:.3rem solid var(--primary);
+        //background: linear-gradient(125deg, var(--primary) 8.4rem, var(--surface-1) 0%);
+        //background-color: var(--surface-1);
+        background-color: inherit;
         box-sizing: border-box;
         ul{
             margin: 0;
@@ -106,6 +110,14 @@
                 text-decoration: none;
                 text-align: center;
             }
+        }
+        .routes-desktop{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
+            justify-self: center;
+
         }
         .aside-button{
             background: inherit;

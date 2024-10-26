@@ -28,7 +28,6 @@
         display: inline-block;
         font-size: 1.2rem;
         font-weight: bolder;
-        letter-spacing: 0;
         color: var(--accent);
     }
     .pre {

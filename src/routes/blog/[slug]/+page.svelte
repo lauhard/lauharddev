@@ -28,14 +28,10 @@
      <!-- content here -->
 {/if}
 
-
-<h2>{metadata.title}</h2>
-
-{#if metadata.excerpt}
-    <p class="excerpt">{metadata.excerpt}</p>
-{/if}
+<h1 class="heading">{metadata.title}</h1>
 
 <div class="metadata">
+    <p class="excerpt">{metadata.excerpt}</p>
     <p><span class="descr">Published: </span> <span class="value">{metadata.created}</span></p>
     {#if metadata?.updated}
         <p><span class="descr">Updated: </span> <span class="value">{metadata?.updated}</span></p>
@@ -46,63 +42,64 @@
     {#if metadata.author}
         <p><span class="descr">Author: </span> <span class="value">{metadata.author}</span></p>
     {/if}
+    {#if categories}
+        <div class="categories">
+                <p><span class="descr">Categories:</span>
+                {#each categories as category}
+                    <a class="category" href={`category/${category}`} title={category}>{category}</a>
+                {/each}
+            </p>
+        </div>
+    {/if}
 </div>
-
-
-{#if categories}
-    <div class="categories">
-            <p><span class="descr">Categories:</span>
-            {#each categories as category}
-                <a class="category" href={`category/${category}`} title={category}>{category}</a>
-            {/each}
-        </p>
-    </div>
-{/if}
 
 <div class="blog-post">
     {@render data.post()}
 </div>
 
 <style lang="scss">
-    .metadata, .excerpt{
-        p {
-            margin: 0;
-        }
-    }
-    .excerpt{
-        margin-bottom: 1rem;
-    }
-    .descr{
-        font-weight: var(--font-weight-8);
-        width: 100px;
-        display: inline-block;
-        text-transform: uppercase;
-        font-size: var(--font-size-0);
-
+    .heading{
+        text-decoration: underline;
+        font-weight: 700;
     }
     .metadata{
-        .value{
-            font-size: 0.9rem;
-            font-size: .89rem; //16px
+        p{
+            color: var(--text-1);
+            margin: 0;
+            .descr{
+                font-weight: var(--font-weight-8);
+                width: 100px;
+                display: inline-block;
+                text-transform: uppercase;
+                font-size: var(--font-size-0);
+            }
+            .value{
+                font-size: 0.9rem;
+                font-size: .89rem; //16px
+            }
         }
-    }
-    .categories {
-        margin-bottom: 1rem;
-        .category{
-            margin-right: 0.5rem;
-            font-size: .89rem;
-            text-transform: capitalize;
-            &::after{
-                content: ',';
-            }
-            &:last-child{
+        .excerpt{
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        .categories {
+            margin-bottom: 1rem;
+            .category{
+                margin-right: 0.5rem;
+                font-size: .89rem;
+                text-transform: capitalize;
                 &::after{
-                    content: '';
+                    content: ',';
                 }
+                &:last-child{
+                    &::after{
+                        content: '';
+                    }
+                }
+                /*&::before{
+                    content: '#';
+                }*/
             }
-            /*&::before{
-                content: '#';
-            }*/
         }
     }
 </style>
