@@ -11,9 +11,9 @@
 }
 html {
   /*dark*/
-  --text-1-dark: #cbccc8;
-  --text-2-dark: #e1e1e1;
-  --text-3-dark: #d1d1d1;
+  --text-1-dark: #bebebe;
+  --text-2-dark: #d1d1d1;
+  --text-3-dark: #e1e1e1;
   --text-1-light: #535353;
   --text-2-light: #302e2e;
   --text-3-light: #222020;
@@ -43,7 +43,7 @@ html {
   --accent-hover-light: #ecc852;
   --accent-hover-background-light: #b08b17;
   --accent-focus-light: rgba(160, 123, 21, 0.375);
-  --surface-1-dark: #292727;
+  --surface-1-dark: #25262B;
   --surface-2-dark: #353333;
   --surface-3-dark: #333333;
   --surface-4-dark: #3a3a3a;
@@ -91,7 +91,7 @@ html {
   --shiki-color: var(--text-1);
   --shiki-background-color: var(--surface-1);
   --side: 0 2rem;
-  --top:3.5rem 0 0 0;
+  --top:1.5rem 0 0 0;
 }
 
 :root {
@@ -331,7 +331,6 @@ html {
 body {
   overflow-x: hidden; /* Prevent horizontal scroll */
   background-color: var(--surface-1);
-  text-wrap: pretty;
 }
 
 html, body {
@@ -383,7 +382,7 @@ h6 {
 
 h1 {
   font-size: 2.5rem; /* Hauptüberschrift */
-  font-size: 2rem; /* Unterüberschrift */
+  font-size: 2rem;
   line-height: 2.5rem;
 }
 
@@ -604,8 +603,6 @@ li:not(.blog-post li) {
   width: 100%;
   max-inline-size: 100%;
   align-self: center;
-  /*padding-inline: var(--size-2);
-  padding-block: var(--size-2);*/
   border-radius: var(--size-2);
   box-shadow: var(--shadow-5);
   box-sizing: border-box;

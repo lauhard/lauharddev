@@ -5,11 +5,14 @@
     import ThemeSwitcher from "$lib/components/ThemeSwitcher.svelte";
     import { setTheme } from "$lib/stores/themeStore.svelte";
     import Aside from "$lib/components/Aside.svelte";
+    import { LucideArrowUp } from "lucide-svelte";
     let { children, data } = $props();
     setTheme(data.theme);
     let show= $state(false);
+    let scroll = $state(0);
 </script>
 
+<svelte:window bind:scrollY={scroll} />
 
 <div class="app ">
         {#if show}
@@ -28,6 +31,10 @@
     </main>
 </div>
 
+<button class="btn-up" class:show={scroll > 40} disabled={scroll < 40} onclick={()=>{
+    scroll = 0;
+}}><LucideArrowUp size="1.5rem"></LucideArrowUp></button>
+
 <style lang="scss">
     .app {
         display: flex;
@@ -35,11 +42,7 @@
         min-height: 100vh;
         height: 100%;
         width: 100%;
-        /*background-image: linear-gradient(to right bottom, #292727, #2b2929, #2d2b2b, #302e2e, #323030, #45373775, #583f3c5d, #6b474063, #9059424d, #af6d3e44, #c888353b, #d8a9262f);
-        background-color: var(--primary);
-        background:linear-gradient(100deg, var(--surface-1) 40%, var(--primary) 80%);*/
         background-image: var(--surface-gradient);
-
         main {
             display: flex;
             flex-direction: column;
@@ -48,6 +51,7 @@
             max-width: var(--content-width);
             align-self: center;
             margin:var(--top);
+            padding:var(--side);
         }
     }
     .brand {
@@ -63,41 +67,55 @@
             letter-spacing: 0px;
             color: var(--primary);
             font-weight: bolder;
-            margin-bottom: .2rem;
             text-decoration: none;
-            //text-decoration: none;
             &:hover {
                 color:var(--accent);
             }
         }
     }
+    .btn-up {
+        bottom: -30px;
+        right: 1.5rem;
+        transition: all 0.3s ease-in-out;
+        z-index: 99;
+        position: fixed;
+        color:var(--surface-1);
+        border:var(--accent);
+        background-color: var(--accent);
+    }
+/* If data-theme="dark" is directly on .btn-up */
+    .show {
+        bottom: 1.5rem !important;
+        transition: all 0.3s ease-in-out;
+        border-radius: 50%;
+    }
 
     @media (max-width: 575.98px) {
+        :root{
+            --word-spacing: 1px;
+        }
         main{
-            --side: 0 1rem;
+            //background-color: orange;
+            --top:1rem 0 0 0;
+            --side: 0 1.5rem;
         }
     }
 
     // Small devices (landscape phones, less than 768px)
-    @media (max-width: 767.98px) {
+    @media (min-width: 575.98px) and (max-width: 767.98px) {
         main {
             --base-font-size:6px !important;
+            --top:1rem 0 0 0;
         }
     }
 
     // Medium devices (tablets, less than 992px)
-    @media (max-width: 991.98px) {
-        main{
-            padding: var(--side);
-            --top:1.5rem;
-        }
+    @media (min-width: 767.98px) and (max-width: 991.98px) {
+
      }
 
     // Large devices (desktops, less than 1200px)
     @media (max-width: 1199.98px) {
-        main {
-            margin-top: 2rem;
-        }
-    }
 
+    }
 </style>

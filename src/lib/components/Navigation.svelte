@@ -77,11 +77,12 @@
 <style lang="scss">
     nav {
         //box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        height: 2.5rem;
+        height: 4rem;
         //background: linear-gradient(125deg, var(--primary) 8.4rem, var(--surface-1) 0%);
         //background-color: var(--surface-1);
         background-color: inherit;
         box-sizing: border-box;
+
         ul{
             margin: 0;
             padding: 0;
@@ -130,6 +131,14 @@
                 height: 1.25rem;
                 stroke-width: 2.5px;
             }
+        }
+    }
+
+     @media (max-width: 575.98px) {
+        nav{
+            box-shadow: var(--shadow-1);
+            background: var(--surface-1);
+
         }
     }
 </style>

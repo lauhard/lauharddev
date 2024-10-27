@@ -79,7 +79,7 @@
             }
         }
         .excerpt{
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             text-align: justify;
         }
         .categories {

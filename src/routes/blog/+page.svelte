@@ -36,7 +36,9 @@
                 {/each}
             </div>
             <div class="excerpt">
-                {blogPost.excerpt}
+                <p>
+                    {blogPost.excerpt}
+                </p>
             </div>
             <!-- content here -->
         </li>
@@ -51,7 +53,6 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-
             a {
                 margin: 0;
                 padding: 0;
@@ -99,6 +100,5 @@
     .heading {
         text-transform: uppercase;
         display: inline-block;
-        color: var(--brand);
     }
 </style>

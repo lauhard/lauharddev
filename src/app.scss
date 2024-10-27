@@ -11,9 +11,9 @@
 html {
 
     /*dark*/
-    --text-1-dark: #cbccc8;
-    --text-2-dark: #e1e1e1;
-    --text-3-dark: #d1d1d1;
+    --text-1-dark: #bebebe;
+    --text-2-dark: #d1d1d1;
+    --text-3-dark: #e1e1e1;
 
     --text-1-light: #535353;
     --text-2-light: #302e2e;
@@ -50,7 +50,7 @@ html {
     --accent-hover-background-light: #b08b17;
     --accent-focus-light: rgba(160, 123, 21, 0.375);
 
-    --surface-1-dark: #292727;
+    --surface-1-dark: #25262B;
     --surface-2-dark: #353333;
     --surface-3-dark: #333333;
     --surface-4-dark: #3a3a3a;
@@ -105,7 +105,7 @@ html {
     --shiki-background-color: var(--surface-1);
 
     --side: 0 2rem;
-    --top:3.5rem 0 0 0;
+    --top:1.5rem  0 0 0;
 }
 :root{
     color-scheme: dark;
@@ -208,14 +208,13 @@ html {
     --shadow-5: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     --shadow-6: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 
-        /* Breakpoints */
+    /* Breakpoints */
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
 
     /*override styles when needed... */
-
     --pico-form-element-disabled-opacity: 0.5;
     --pico-form-element-invalid-border-color: #964a50;
     --pico-form-element-invalid-active-border-color: #b7403b;
@@ -231,7 +230,6 @@ html {
     --pico-range-active-border-color: #2a3140;
     --pico-form-element-background-color:var(--surface-2);
     --pico-form-element-active-background-color:var(--surface-1);
-
 }
 
 @media (prefers-color-scheme: light){
@@ -360,7 +358,6 @@ html {
 body{
     overflow-x: hidden; /* Prevent horizontal scroll */
     background-color: var(--surface-1);
-    text-wrap: pretty;
 }
 
 html, body{
@@ -414,9 +411,8 @@ h6 {
 
 h1 {
     font-size: 2.5rem;    /* Hauptüberschrift */
-    font-size: 2rem;  /* Unterüberschrift */
+    font-size: 2rem;
     line-height: 2.5rem;
-
 }
 
 h2 {
@@ -472,7 +468,6 @@ h6 {
     background-color: var(--navigation);
     color:var(--text-3);
 }
-
 
 .primary{
     color: var(--primary);
@@ -641,8 +636,6 @@ li:not(.blog-post li){
         width: 100%;
         max-inline-size: 100%;
         align-self: center;
-        /*padding-inline: var(--size-2);
-        padding-block: var(--size-2);*/
         border-radius: var(--size-2);
         box-shadow: var(--shadow-5);
         box-sizing: border-box;
@@ -666,7 +659,6 @@ li:not(.blog-post li){
     :root {
         --base-font-size:16px !important;
     }
-
 }
 
 
