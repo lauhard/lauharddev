@@ -51,7 +51,6 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            margin-inline: 1rem;
 
             a {
                 margin: 0;
@@ -100,5 +99,6 @@
     .heading {
         text-transform: uppercase;
         display: inline-block;
+        color: var(--brand);
     }
 </style>

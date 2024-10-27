@@ -55,6 +55,16 @@ html {
     --surface-3-dark: #333333;
     --surface-4-dark: #3a3a3a;
     --sufgace-5-dark: #444444;
+    --shiki-dark-bg:#2d353b;
+    --surface-gradient-dark:linear-gradient(
+        95deg,
+            hsl(0deg 11% 15%) 0%,
+            hsl(0deg 11% 15%) 22%,
+            hsl(0deg 9% 16%) 43%,
+            hsl(0deg 9% 17%) 62%,
+            hsla(7, 9%, 19%, 0.95) 81%,
+            hsla(44, 11%, 19%, 0.90) 100%
+        );
 
     --navigation-dark:var(--surface-1-dark);
     --footer-dark:var(--surface-1-dark);
@@ -64,8 +74,18 @@ html {
     --surface-3-light: #d1d1d1;
     --surface-4-light: #c1c1c1;
     --surface-5-light: #b1b1b1;
-    --shiki-dark-bg:#2d353b;
     --shiki-light-bg:#FFFFFF;
+    --surface-gradient-light:
+        background-image: linear-gradient(
+        95deg,
+            hsl(0deg 11% 15%) 0%,
+            hsl(0deg 11% 15%) 22%,
+            hsl(0deg 9% 16%) 43%,
+            hsl(0deg 9% 17%) 62%,
+            hsla(7, 9%, 19%, 0.95) 81%,
+            hsla(44, 11%, 19%, 0.90) 100%
+        );
+
 
     --navigation-light:#ffffff;
     --footer-light:var(--primary-light);
@@ -100,6 +120,7 @@ html {
     --surface-3: var(--surface-3-dark);
     --surface-4: var(--surface-4-dark);
     --surface-5: var(--surface-5-dark);
+    --surface-gradient: var(--surface-gradient-dark);
     --shiki-bg: var(--shiki-dark-bg);
     --navigation: var(--navigation-dark);
     --footer: var(--footer-dark);
@@ -227,6 +248,7 @@ html {
         --surface-3: var(--surface-3-light);
         --surface-4: var(--surface-4-light);
         --surface-5: var(--surface-5-light);
+        --surface-gradient: var(--surface-gradient-light);
         --shiki-bg: var(--shiki-light-bg);
         --navigation: var(--navigation-light);
         --footer: var(--footer-light);
@@ -256,6 +278,7 @@ html[data-theme='dark']{
     --surface-3: var(--surface-3-dark);
     --surface-4: var(--surface-4-dark);
     --surface-5: var(--surface-5-dark);
+    --surface-gradient: var(--surface-gradient-dark);
     --shiki-bg: var(--shiki-dark-bg);
     --navigation: var(--navigation-dark);
     --footer: var(--footer-dark);
@@ -290,6 +313,7 @@ html[data-theme='light']{
     --surface-3: var(--surface-3-light);
     --surface-4: var(--surface-4-light);
     --surface-5: var(--surface-5-light);
+    --surface-gradient: var(--surface-gradient-light);
     --shiki-bg: var(--shiki-light-bg);
     --navigation: var(--navigation-light);
     --footer: var(--footer-light);
@@ -334,7 +358,7 @@ html {
     scroll-snap-type: proximity;
 }
 body{
-    overflow-x: scroll; /* Prevent horizontal scroll */
+    overflow-x: hidden; /* Prevent horizontal scroll */
     background-color: var(--surface-1);
     text-wrap: pretty;
 }
@@ -440,10 +464,15 @@ h6 {
     background-color: var(--surface-5);
     color: var(--text-3);
 }
+.surface-gradient {
+    /*background-color: var(--primary);*/
+    background-image: var(--surface-gradient);
+}
 .navigation {
     background-color: var(--navigation);
     color:var(--text-3);
 }
+
 
 .primary{
     color: var(--primary);

@@ -11,7 +11,7 @@
 </script>
 
 
-<div class="app">
+<div class="app ">
         {#if show}
             <Aside bind:show={show}></Aside>
         {/if}
@@ -35,7 +35,11 @@
         min-height: 100vh;
         height: 100%;
         width: 100%;
-        background:linear-gradient(135deg, var(--surface-1) 0%, var(--surface-2) 90%, var(--surface-3) 0%);
+        /*background-image: linear-gradient(to right bottom, #292727, #2b2929, #2d2b2b, #302e2e, #323030, #45373775, #583f3c5d, #6b474063, #9059424d, #af6d3e44, #c888353b, #d8a9262f);
+        background-color: var(--primary);
+        background:linear-gradient(100deg, var(--surface-1) 40%, var(--primary) 80%);*/
+        background-image: var(--surface-gradient);
+
         main {
             display: flex;
             flex-direction: column;
