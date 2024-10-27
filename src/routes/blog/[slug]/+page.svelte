@@ -3,12 +3,16 @@
     import type { Metadata } from '../../../app';
     import { addCodeBlockExtension } from '$lib';
     import Image from '$lib/components/Image.svelte';
+    import { TableOfContents } from 'lucide-svelte';
+    import Toc from '$lib/components/TOC.svelte';
 
     let { data } = $props();
     let metadata: Metadata = data.metadata;
     let categories: Array<string> = metadata.categories;
+    let headings:NodeListOf<HTMLHeadingElement>|undefined = $state();
 
     onMount(async()=>{
+        headings = document.querySelectorAll(" h2, h3, h4, h5, h6");
         await addCodeBlockExtension();
     })
 </script>
@@ -53,6 +57,10 @@
     {/if}
 </div>
 
+{#if headings}
+    <Toc {headings}></Toc>
+{/if}
+
 <div class="blog-post">
     {@render data.post()}
 </div>
@@ -83,7 +91,7 @@
             text-align: justify;
         }
         .categories {
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             .category{
                 margin-right: 0.5rem;
                 font-size: .89rem;
