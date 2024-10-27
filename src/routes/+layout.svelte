@@ -6,10 +6,31 @@
     import { setTheme } from "$lib/stores/themeStore.svelte";
     import Aside from "$lib/components/Aside.svelte";
     import { LucideArrowUp } from "lucide-svelte";
+    import { onMount } from "svelte";
     let { children, data } = $props();
     setTheme(data.theme);
     let show= $state(false);
     let scroll = $state(0);
+    let brandName=$state("");
+    let showName =$state(false);
+
+    onMount(()=>{
+        nameAniamtion();
+    })
+    const nameAniamtion = () => {
+        showName=true;
+        setTimeout(()=>{
+            brandName="lauhard.dev"
+        },200)
+    }
+    const resetNameAnimation = (callback:any) =>{
+        brandName="";
+        showName=false;
+        setTimeout(()=>{
+            if(typeof(callback) == "function" && callback)
+                callback()
+        },200);
+    }
 </script>
 
 <svelte:window bind:scrollY={scroll} />
@@ -22,7 +43,11 @@
             <ThemeSwitcher></ThemeSwitcher>
             {#snippet brand()}
                 <li class="brand">
-                    <a href="/">lauhard.dev</a>
+                    <a href="/"
+                        onmouseup="{()=>{resetNameAnimation(nameAniamtion)}}"
+                    >
+                        <span class:showName>{brandName}</span>
+                    </a>
                 </li>
             {/snippet}
         </Navigation>
@@ -68,7 +93,39 @@
             color: var(--primary);
             font-weight: bolder;
             text-decoration: none;
+            display: flex;
+            flex-direction: row;
+            justify-self: center;
+            align-self: center;
+            span{
+                width: .5rem;
+                opacity: 0;
+                display: block;
+                text-align: center;
+                transition: all 200ms ease-in-out;
+            }
+            .showName {
+                width:7.8rem;
+                opacity: 1;
+                transition: all 200ms ease-in-out;
+            }
             &:hover {
+                color:var(--accent);
+                &::before, &::after{
+                    color:var(--primary);
+                    transition: all 200ms ease-in-out;
+                }
+            }
+            &::before{
+                content:"{ ";
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+                color:var(--accent);
+            }
+             &::after{
+                content:" }";
+                font-size: 1.5rem;
+                line-height: 1.5rem;
                 color:var(--accent);
             }
         }
@@ -111,11 +168,9 @@
 
     // Medium devices (tablets, less than 992px)
     @media (min-width: 767.98px) and (max-width: 991.98px) {
-
-     }
+    }
 
     // Large devices (desktops, less than 1200px)
     @media (max-width: 1199.98px) {
-
     }
 </style>

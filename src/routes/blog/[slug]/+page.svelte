@@ -88,7 +88,6 @@
         }
         .excerpt{
             margin-bottom: 2rem;
-            text-align: justify;
         }
         .categories {
             margin-bottom: 2rem;
