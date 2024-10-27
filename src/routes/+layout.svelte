@@ -137,8 +137,8 @@
         z-index: 99;
         position: fixed;
         color:var(--surface-1);
-        border:var(--accent);
-        background-color: var(--accent);
+        border:var(--brand);
+        background-color: var(--brand);
     }
 /* If data-theme="dark" is directly on .btn-up */
     .show {

@@ -108,16 +108,19 @@
         padding: 0 !important;
         margin: 0 !important;
         text-transform: uppercase;
+        color: var(--text-1-dark);
     }
     ul {
-        background-color: var(--surface-3) !important;
         border-radius: 0.7rem !important;
+        background-color: var(--primary) !important;
+        background: linear-gradient(125deg, #333232c0 20%, #24222257 80%);
+        position: relative;
         overflow: hidden;
+        border: 1px solid var(--surface-1) !important; /* Transparent base border */
     }
     input {
         background-color: transparent;
         font-size: 13px;
-        font-size: 0.73rem;
         font-weight: bold;
     }
     li,
@@ -128,13 +131,15 @@
     ul {
         margin-top: 0.3rem !important;
     }
+    .dark,
+    .light {
+        border-radius: 0 !important;
+    }
     .light:hover {
         background-color: var(--surface-2-light);
         color: var(--text-2-light);
-        border-radius: 0 !important;
     }
     .dark:hover {
-        border-radius: 0 !important;
         background-color: var(--surface-2-dark);
         color: var(--text-2-dark);
     }

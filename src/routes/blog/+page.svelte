@@ -83,6 +83,7 @@
                     align-items: center;
                     height: 1.3rem;
                     color: var(--text-2-light);
+                    color: var(--surface-2);
                     text-transform: uppercase;
                 }
             }

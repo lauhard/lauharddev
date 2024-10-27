@@ -65,6 +65,7 @@
         box-shadow: var(--shadow-5);
         border-radius: 1rem;
         background-color: var(--surface-1);
+        background-color: var(--surface-2);
         min-width: 300px;
         padding: 1.5rem 2rem;
         ul {
