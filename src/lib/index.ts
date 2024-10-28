@@ -69,6 +69,7 @@ export const getSearchPosts = async () => {
             categories: fmd.data.categories,
             excerpt: fmd.data.excerpt,
             content: content,
+            created: fmd.data.created
         }
     });
     return posts;

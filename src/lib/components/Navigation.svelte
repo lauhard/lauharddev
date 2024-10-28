@@ -138,7 +138,6 @@
         nav{
             box-shadow: var(--shadow-1);
             background: var(--surface-1);
-
         }
     }
 </style>

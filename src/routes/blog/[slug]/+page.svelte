@@ -69,6 +69,7 @@
     .heading{
         text-decoration: underline;
         font-weight: 700;
+        line-height: 2.7rem;
     }
     .metadata{
         p{

@@ -57,6 +57,7 @@
 
 <style lang="scss">
     .toc {
+        --font-size: 0.9rem;
         position: fixed;
         top: 50%;
         transform: translateY(-50%);
@@ -74,7 +75,7 @@
             margin: 0;
             padding: 0;
             li {
-                line-height: 2rem;
+                line-height: 1.8rem;
                 list-style: none;
                 margin: 0;
                 padding: 0;
@@ -82,6 +83,7 @@
                     text-transform: capitalize;
                     text-decoration: none;
                     cursor: pointer;
+                    font-size: var(--font-size);
                     font-weight: 300;
                     transition: all 100ms ease-in-out;
                 }
@@ -116,7 +118,6 @@
 
     @media (max-width: 1500px) {
         .toc {
-            --font-size: 1rem;
             position: relative;
             display: flex;
             width: inherit;
@@ -126,7 +127,7 @@
             left: 0;
             margin-bottom: 2rem;
             a {
-                font-size: var(--font-size);
+                font-size: var(--font-size-1);
             }
             summary {
                 font-size: 1.2rem;

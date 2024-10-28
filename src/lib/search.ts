@@ -12,7 +12,7 @@ export const createIndex = (data: Metadata[]) => {
         tokenize: 'forward',
     });
     data.forEach((item, i) => {
-        const hit = `${item.title} ${item.content} ${item.categories.join(' ')} ${item.excerpt}`;
+        const hit = `${item.title} ${item.content} ${item.categories.join(' ')} ${item.excerpt} ${item.created}`;
         index.add(i, hit);
     });
 
@@ -24,5 +24,5 @@ export const searchIndex = (query: string) => {
     const match = query.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
     const matches = index.search(match);
     const results = matches.map((i) => result[i as number]);
-    return results.map(({ slug, title, content, categories, excerpt }) => { return { slug, title, content, categories, excerpt }; });
+    return results.map(({ slug, title, content, categories, excerpt, created }) => { return { slug, title, content, categories, excerpt, created }; });
 };

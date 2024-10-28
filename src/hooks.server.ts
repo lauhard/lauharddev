@@ -33,7 +33,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     }
 
     //get cookies
-    const cookies = event.cookies.get('data-theme') || "";
+    const cookies = event.cookies.get('lauhard.dev-data-theme') || "";
 
     const resolveOptions = {
         //transformPageChunk is is an optional function that allows you to manipulate the html document.

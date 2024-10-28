@@ -7,6 +7,7 @@
     import Aside from "$lib/components/Aside.svelte";
     import { LucideArrowUp } from "lucide-svelte";
     import { onMount } from "svelte";
+    import Footer from "$lib/components/Footer.svelte";
     let { children, data } = $props();
     setTheme(data.theme);
     let show= $state(false);
@@ -51,10 +52,12 @@
                 </li>
             {/snippet}
         </Navigation>
-    <main>
-        {@render children()}
-    </main>
+        <main>
+            {@render children()}
+        </main>
+        <Footer></Footer>
 </div>
+
 
 <button class="btn-up" class:show={scroll > 40} disabled={scroll < 40} onclick={()=>{
     scroll = 0;
@@ -71,12 +74,14 @@
         main {
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
+            align-self: center;
             height: inherit;
             width: inherit;
             max-width: var(--content-width);
-            align-self: center;
             margin:var(--top);
             padding:var(--side);
+            margin-bottom: auto;
         }
     }
     .brand {
@@ -136,7 +141,7 @@
         transition: all 0.3s ease-in-out;
         z-index: 99;
         position: fixed;
-        color:var(--text-1);
+        color:var(--text-1-light);
         border:var(--brand);
         background-color: var(--brand);
     }
@@ -153,7 +158,7 @@
         }
         main{
             //background-color: orange;
-            --top:1rem 0 0 0;
+            --top:2rem 0 0 0;
             --side: 0 1.5rem;
         }
     }
@@ -162,7 +167,7 @@
     @media (min-width: 575.98px) and (max-width: 767.98px) {
         main {
             --base-font-size:6px !important;
-            --top:1rem 0 0 0;
+            --top:1.5rem 0 0 0;
         }
     }
 

@@ -16,10 +16,10 @@
     };
     const translateX = -50;
     const close = () => {
-        open=false;
+        open=false; // fade out the links
         setTimeout(() => {
             show = false;
-        }, 300);
+        }, 300); // close the aside
     };
 
     let open =$state(false);
@@ -27,7 +27,7 @@
         if(show){
             setTimeout(() => {
                 open= show as boolean
-            }, 0); //fix: for r
+            }, 0); //fix: first open the aside, then show the links
         }
     })
 </script>
@@ -38,10 +38,7 @@
 
         <li>
             <button
-                onmousedown={()=>setTimeout(()=>{
-                        close()
-                    },300)}
-
+                onmouseup={close}
                 class="close"
                 type="button"
                 title="Close Aside"
@@ -61,9 +58,7 @@
                 <a
                     class="route-aside"
                     href={(route as Route).path}
-                    onmousedown={()=>setTimeout(()=>{
-                        close()
-                    },300)}
+                    onmouseup={close}
                 >
                 {route.name}
                 </a>
@@ -90,7 +85,7 @@
         left: -100%;
         z-index: 100;
         transition: all 400ms ease-in-out;
-
+        opacity: .9;
         .routes-aside {
             padding: 0;
             margin: 0;
@@ -110,7 +105,6 @@
                 text-align: center;
                 width: 100%;
                 height: 4rem;
-
                 .route-aside {
                     width: 100%;
                     height: 100%;
@@ -120,7 +114,6 @@
                     font-size: var(--font-size-3);
                     font-weight: var(--font-weight-6);
                     transition: all var(--animation-time) ease-in-out;
-
                 }
             }
         }
@@ -142,7 +135,6 @@
             }
         }
     }
-
     .open {
         width:100%;
         left:0%;
@@ -156,8 +148,6 @@
         }
         transition:all 400ms ease-out !important;
     }
-
-
 
     @keyframes slideIn {
         from {

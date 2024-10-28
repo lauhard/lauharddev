@@ -19,7 +19,7 @@
             document?.firstElementChild?.setAttribute("data-theme", theme);
         } else {
             document?.firstElementChild?.setAttribute("data-theme", theme);
-            setCookie(`data-theme=${theme}`, "60*60*24*365", "/");
+            setCookie(`lauhard.dev-data-theme=${theme}`, "60*60*24*365", "/");
             $currentTheme = theme.toString();
         }
     };

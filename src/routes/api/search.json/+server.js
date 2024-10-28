@@ -3,7 +3,7 @@ import { json } from "@sveltejs/kit";
 export const prerender = true;
 export const GET = async () => {
     /**
-     * @type {{ title: any; content: string; categories: string, slug: string, excerpt:string }[]}
+     * @type {{ title: any; content: string; categories: string, slug: string, excerpt:string, created: string }[]}
      */
     let posts = [];
     const blogPosts = await getSearchPosts();
@@ -13,7 +13,8 @@ export const GET = async () => {
             content: post.content,
             slug: post.slug,
             categories: post.categories.toString().split(","),
-            excerpt: post.excerpt
+            excerpt: post.excerpt,
+            created: post.created,
         });
     });
     return json(posts);
