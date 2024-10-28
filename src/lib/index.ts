@@ -67,6 +67,7 @@ export const getSearchPosts = async () => {
             title: fmd.data.title,
             slug: slug,
             categories: fmd.data.categories,
+            excerpt: fmd.data.excerpt,
             content: content,
         }
     });
