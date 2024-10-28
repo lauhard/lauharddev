@@ -63,9 +63,11 @@
         left: calc(50% + 500px);
         z-index: 1;
         box-shadow: var(--shadow-5);
-        border-radius: 1rem;
+        border-radius: 0.5rem;
+
         background-color: var(--surface-1);
-        background-color: var(--surface-2);
+        background-color: var(--surface-3);
+        border: 1px solid var(--surface-1);
         min-width: 300px;
         padding: 1.5rem 2rem;
         ul {
@@ -101,9 +103,13 @@
             word-wrap: break-word;
             text-wrap: pretty;
             text-align: center;
+            color: var(--text-1) !important;
 
             span {
                 font-weight: 600;
+            }
+            &:hover {
+                color: var(--accent) !important;
             }
         }
     }

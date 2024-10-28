@@ -108,12 +108,12 @@
         padding: 0 !important;
         margin: 0 !important;
         text-transform: uppercase;
-        color: var(--text-1-dark);
+        color: var(--text-1);
     }
     ul {
         border-radius: 0.7rem !important;
-        background-color: var(--primary) !important;
-        background: linear-gradient(125deg, #333232c0 20%, #24222257 80%);
+        background-color: var(--surface-1);
+        //background: linear-gradient(125deg, #333232c0 20%, #24222257 80%);
         position: relative;
         overflow: hidden;
         border: 1px solid var(--surface-1) !important; /* Transparent base border */

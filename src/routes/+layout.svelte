@@ -110,7 +110,7 @@
                 transition: all 200ms ease-in-out;
             }
             &:hover {
-                color:var(--accent);
+                color:var(--brand);
                 &::before, &::after{
                     color:var(--primary);
                     transition: all 200ms ease-in-out;
@@ -120,13 +120,13 @@
                 content:"{ ";
                 font-size: 1.5rem;
                 line-height: 1.5rem;
-                color:var(--accent);
+                color:var(--brand);
             }
              &::after{
                 content:" }";
                 font-size: 1.5rem;
                 line-height: 1.5rem;
-                color:var(--accent);
+                color:var(--brand);
             }
         }
     }
@@ -136,7 +136,7 @@
         transition: all 0.3s ease-in-out;
         z-index: 99;
         position: fixed;
-        color:var(--surface-1);
+        color:var(--text-1);
         border:var(--brand);
         background-color: var(--brand);
     }

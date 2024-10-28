@@ -128,7 +128,6 @@
             display: flex;
             flex-direction: row-reverse;
             width: 100%;
-            height: 2rem;
             margin:0;
             padding: 0;
             .close {
@@ -138,6 +137,8 @@
                 background-color: inherit;
                 border:none;
                 box-shadow: none;
+                margin-top: .8rem;
+                margin-right: .5rem;
             }
         }
     }
