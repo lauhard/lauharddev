@@ -16,5 +16,3 @@ export const address = "";
 export const city = "";
 export const country = "";
 export const postalCode = "";
-export const blogPostPath = "src/routes/blog/";
-

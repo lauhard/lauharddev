@@ -36,6 +36,7 @@
 	"type": "module",
 	"dependencies": {
 		"@picocss/pico": "^2.0.6",
+		"@vercel/postgres": "^0.10.0",
 		"flexsearch": "^0.7.43",
 		"gray-matter": "^4.0.3",
 		"lucide-svelte": "^0.452.0",
