@@ -5,16 +5,30 @@
     import Image from '$lib/components/Image.svelte';
     import { TableOfContents } from 'lucide-svelte';
     import Toc from '$lib/components/TOC.svelte';
+    import { page } from '$app/stores';
 
     let { data } = $props();
     let metadata: Metadata = data.metadata;
     let categories: Array<string> = metadata.categories;
     let headings:NodeListOf<HTMLHeadingElement>|undefined = $state();
-
+    let viewCount=$state(0);
     onMount(async()=>{
         headings = document.querySelectorAll(" h2, h3, h4, h5, h6");
         await addCodeBlockExtension();
+        const slug = $page.url.pathname.split('/').pop();
+        const response = await fetch('/api/views', {
+            method: 'POST',
+            body: JSON.stringify({ slug }),
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+
+        const result = await response.json();
+        let { view_count } = await result.rows[0];
+        viewCount = view_count;
     })
+
 </script>
 
 <svelte:head>
@@ -33,7 +47,7 @@
 {/if}
 
 <h1 class="heading">{metadata.title}</h1>
-
+<p>page views: {viewCount}</p>
 <div class="metadata">
     <p class="excerpt">{metadata.excerpt}</p>
     <p><span class="descr">Published: </span> <span class="value">{metadata.created}</span></p>

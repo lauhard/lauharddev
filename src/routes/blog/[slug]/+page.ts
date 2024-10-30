@@ -4,6 +4,7 @@ import { error } from '@sveltejs/kit';
 export const load = async ({ params }) => {
     try {
         const slug = params.slug;
+
         const blogContent = await getPostBySlug(slug)
         return {
             ...blogContent
