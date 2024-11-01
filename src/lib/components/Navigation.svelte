@@ -130,6 +130,7 @@
                 margin-bottom: .25rem;
                 height: 1.25rem;
                 stroke-width: 2.5px;
+                color: var(--accent);
             }
         }
     }

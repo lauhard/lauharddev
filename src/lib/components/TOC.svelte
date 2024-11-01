@@ -57,7 +57,7 @@
 
 <style lang="scss">
     .toc {
-        --font-size: 0.9rem;
+        --font-size: 1rem;
         position: fixed;
         top: 50%;
         transform: translateY(-50%);

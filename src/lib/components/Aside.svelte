@@ -132,6 +132,7 @@
                 box-shadow: none;
                 margin-top: .8rem;
                 margin-right: .5rem;
+                color: var(--accent);
             }
         }
     }
