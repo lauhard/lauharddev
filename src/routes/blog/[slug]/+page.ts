@@ -1,6 +1,7 @@
 import { getPostBySlug } from '$lib';
 import { error } from '@sveltejs/kit';
 
+
 export const load = async ({ params }) => {
     try {
         const slug = params.slug;

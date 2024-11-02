@@ -3,7 +3,8 @@ import readingTime from "mdsvex-reading-time";
 import { highlightCode } from './shiki.config.js';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import rehypeSlug from 'rehype-slug'
-
+import remarkMath from 'remark-math';
+import rehypeKatexSvelte from "rehype-katex-svelte";
 export const mdsvexConfig = {
     extensions: ['.svx', '.md'],
     layout: {
@@ -21,6 +22,11 @@ export const mdsvexConfig = {
             return escapeSvelte(html);
         },
     },
-    remarkPlugins: [readingTime],
-    rehypePlugins: [rehypeSlug, rehypeUnwrapImages]
+    remarkPlugins: [readingTime, remarkMath],
+    rehypePlugins: [rehypeSlug, rehypeUnwrapImages, [
+        rehypeKatexSvelte,
+        {
+            output: 'mathml'
+        }
+    ]],
 }

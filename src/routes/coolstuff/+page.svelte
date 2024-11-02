@@ -33,6 +33,7 @@
                 if (!acc[category]) {
                     acc[category] = [];
                 }
+
                 //check if item with same url already exists
                 if (
                     !acc[category].find(
@@ -74,7 +75,6 @@
 <style lang="scss">
     .cool-stuff-grid {
         display: grid;
-        gap: 1rem;
 
         h3 {
             text-transform: uppercase;
@@ -84,6 +84,7 @@
             gap: 1rem;
             grid-auto-flow: dense;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            margin-bottom: 1rem;
         }
         .card {
             display: flex;

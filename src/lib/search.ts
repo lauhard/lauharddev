@@ -11,11 +11,11 @@ export const createIndex = (data: Metadata[]) => {
     index = new FlexSearch.Index({
         tokenize: 'forward',
     });
+    if (data.length === 0) return;
     data.forEach((item, i) => {
         const hit = `${item.title} ${item.content} ${item.categories.join(' ')} ${item.excerpt} ${item.created}`;
         index.add(i, hit);
     });
-
     result = data;
 };
 

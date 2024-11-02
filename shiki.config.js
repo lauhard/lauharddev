@@ -2,7 +2,7 @@
 import { createHighlighter, codeToHtml } from 'shiki';
 let highlighter;
 
-const shiki_langs = ['javascript', 'html', 'rust', 'typescript', 'json', 'yaml', 'css', 'scss', 'svelte', 'sql', 'bat'];
+const shiki_langs = ['javascript', 'html', 'rust', 'typescript', 'json', 'yaml', 'css', 'scss', 'svelte', 'sql', 'bat', 'latex', 'matlab'];
 const shiki_themes = ['monokai', 'min-light', 'dracula', 'synthwave-84', 'material-theme', 'laserwave', 'vitesse-dark', 'everforest-dark', 'dark-plus', 'nord', 'dracula-soft', 'andromeeda', 'github-dark-dimmed', 'poimandres', 'solarized-dark'];
 
 const themes = {

@@ -16,7 +16,8 @@ export const getBlogPosts = async () => {
         if (file && typeof file === 'object' && 'metadata' in file && slug) {
             const metadata = (file as { metadata: Metadata }).metadata
             const post = { ...metadata, slug }
-            blogPosts.push(post)
+            if (post?.published === true)
+                blogPosts.push(post)
         }
     }
     return blogPosts;
@@ -40,10 +41,13 @@ export const getCategories = async () => {
 export const getPostBySlug = async (slug: string) => {
     try {
         const post = await import(`../../src/lib/posts/${slug}/${slug}.md`);
-        return {
-            post: post.default,
-            metadata: post.metadata
-        }
+        if (post && post.metadata?.published === true) {
+            return {
+                post: post.default,
+                metadata: post.metadata
+            }
+        } // when draft is true, return null
+        return null;
     } catch (e) {
         console.error("Post not found", { message: "Check the folder/ markdown file name - " + (e as Error)?.message });
         throw new Error("Post not found - Check the folder/markdown file name - " + (e as Error)?.message);
@@ -58,21 +62,24 @@ export const getPostsByCategory = async (category: string) => {
 
 export const getSearchPosts = async () => {
     const globs = import.meta.glob("/src/lib/posts/*/*.md", { as: 'raw', eager: true });
-    const posts = Object.entries(globs).map(([path, file]) => {
+    const searchPosts: Metadata[] = [];
+    Object.entries(globs).map(([path, file]) => {
         const fmd = matter(file);
         const slug = path.split('/')?.pop()?.replace('.md', '') ?? '';
         let content = removeMd(fmd.content);
         content = content.replace(/\n{2,}/g, '\n').replace(/\s+/g, ' ').trim();
-        return {
-            title: fmd.data.title,
-            slug: slug,
-            categories: fmd.data.categories,
-            excerpt: fmd.data.excerpt,
-            content: content,
-            created: fmd.data.created
+        if (fmd.data.published === true) {
+            searchPosts.push({
+                title: fmd.data.title,
+                slug: slug,
+                categories: fmd.data.categories,
+                excerpt: fmd.data.excerpt,
+                content: content,
+                created: fmd.data.created
+            });
         }
     });
-    return posts;
+    return searchPosts;
 }
 
 

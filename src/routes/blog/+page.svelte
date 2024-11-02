@@ -5,11 +5,16 @@
     import MySearch from "$lib/components/MySearch.svelte";
     let { data } = $props();
     const blogPosts = data.blogPosts as Metadata[];
+
     let results: Metadata[] = $state(blogPosts);
     let searchTerm = $state("");
 
     $effect(() => {
-        if (results.length === 0 && searchTerm.length == 0) {
+        if (
+            results.length === 0 &&
+            searchTerm.length == 0 &&
+            blogPosts.length > 0
+        ) {
             results = blogPosts;
         }
     });
@@ -20,7 +25,6 @@
 </svelte:head>
 
 <h2 class="heading">Blog Posts</h2>
-
 <MySearch bind:results bind:searchTerm></MySearch>
 
 <ul class="blog-posts">

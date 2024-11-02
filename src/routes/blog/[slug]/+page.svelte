@@ -90,7 +90,7 @@
             margin: 0;
             .descr{
                 font-weight: var(--font-weight-8);
-                width: 100px;
+                width: 107px;
                 display: inline-block;
                 text-transform: uppercase;
                 font-size: var(--font-size-0);

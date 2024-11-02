@@ -83,9 +83,9 @@ html {
     --font-mono: 'Fira Mono', monospace;
 
     --content-width: 900px;
-    --base-font-size: 13px;
+    --base-font-size: 14px;
     --line-height: 1.7;
-    --letter-spacing: 0px;
+    --letter-spacing: .5px;
     --word-spacing: 0.12rem;
     --animation-time: 200ms;
     --scroll-padding-top: 20px;
@@ -601,19 +601,20 @@ li:not(.blog-post li){
     transition: all var(--animation-time) ease-in-out;
 }
 
-
-
-
-
-
-
-
-
-
+.katex{
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start !important;
+}
 
 .blog-post{
     p{
         color: var(--text-1);
+    }
+
+    h1, h2, h3, h4, h5, h6{
+        margin-top: 2.5rem;
     }
 
     width: 100%;

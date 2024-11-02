@@ -9,15 +9,21 @@
     let search: "loading" | "ready" = $state("loading");
 
     onMount(async () => {
-        results = (await fetch(`/api/search.json`).then((res) =>
-            res.json(),
-        )) as Metadata[];
-        createIndex(results);
-        search = "ready";
+        const response = await fetch(`/api/search.json`);
+        if (!response.ok) {
+            search = "loading";
+            return false;
+        } else {
+            results = await response.json();
+            if (results.length > 0) {
+                createIndex(results);
+                search = "ready";
+            }
+        }
     });
 
     $effect(() => {
-        if (search === "ready") {
+        if (search === "ready" && searchTerm.length > 0 && results.length > 0) {
             results = searchIndex(searchTerm);
         }
     });
