@@ -6,12 +6,12 @@
     }, 15000);
 </script>
 
-<div>
-    <div class="box">
-        <div class="header">
-            <span class="info">INFO</span>
+<div class="landing-page">
+    <div class="info-box">
+        <div class="box-header">
+            <span class="header-info">INFO</span>
         </div>
-        <div class="content">
+        <div class="box-content">
             <ConsoleLog
                 message="console.log('Hello world & hello you!');"
                 delay={0}
@@ -40,7 +40,7 @@
 </div>
 
 <style lang="scss">
-    div {
+    .landing-page {
         display: flex;
         margin: 0;
         margin-top: 5%;
@@ -49,9 +49,8 @@
         justify-self: center;
         align-self: center;
         gap: 1rem;
-        transition: all 0.3s ease-in-out;
 
-        .box {
+        .info-box {
             flex-direction: column;
             border-radius: 1rem;
             width: 100%;
@@ -66,7 +65,7 @@
             position: relative;
             overflow: hidden;
         }
-        .content {
+        .box-content {
             display: flex;
             justify-content: center;
             flex-direction: column;
@@ -75,18 +74,19 @@
             margin: 0;
             padding: 0;
             gap: 1rem;
-            padding-bottom: 2rem;
+            padding-block: 2rem;
             padding-inline: 2rem;
         }
-        .header {
+        .box-header {
             width: 100%;
             height: 3rem;
             display: flex;
             justify-content: center;
             margin: 0;
             padding: 0;
+            align-items: center;
         }
-        .info {
+        .header-info {
             width: 3rem;
             left: 1rem;
             position: absolute;
@@ -99,12 +99,6 @@
             border-radius: 0.3rem;
             font-weight: bold;
             color: var(--surface-2);
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
         }
     }
     a {
@@ -125,10 +119,18 @@
         cursor: pointer;
         transition: all 0.3s ease;
         box-shadow: var(--shadow-4);
-
         &:hover {
             background: var(--accent);
             box-shadow: var(--shadow-6);
+        }
+    }
+    @media (max-width: 575.98px) {
+        :root {
+            --word-spacing: 1px;
+        }
+        .landing-page {
+            //background-color: orange;
+            width: 100%;
         }
     }
 </style>

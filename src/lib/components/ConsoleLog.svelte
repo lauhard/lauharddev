@@ -74,7 +74,7 @@
 
 <!-- content here -->
 <div>
-    <p bind:this={consoleMessage}></p>
+    <p class="animated-text" bind:this={consoleMessage}></p>
     <span
         bind:this={cursor}
         class="cursor"
@@ -87,31 +87,28 @@
         position: relative;
         transition: all 0.3s ease-in-out;
     }
-    p {
-        font-family: monospace;
-        margin: 0;
-        padding: 0;
-        letter-spacing: normal;
+    .animated-text {
         position: relative;
-        width: auto;
-        padding-right: 0 !important;
+        display: inline;
+        margin: 0;
+        margin-right: 0.5rem;
+        padding: 0;
+        font-family: monospace;
+        letter-spacing: normal;
+        text-wrap: pretty;
+        color: var(--text-2);
         inline-size: fit-content;
         block-size: fit-content;
-        margin-right: 0.5rem;
-        display: inline;
-        color: var(--text-2);
-        text-wrap: pretty;
-        transition: all 0.3s ease-in-out;
+        transition: all var(--animation-time) ease-in-out;
     }
     .cursor {
-        display: inline-block;
-        width: 1px;
-        background-color: var(--text-2);
-        height: inherit;
-        height: 1.3rem;
         position: absolute;
         margin: 0;
         padding: 0;
+        display: inline-block;
+        width: 1px;
+        background-color: var(--text-2);
+        height: 1.3rem;
         bottom: 5px;
         opacity: 0;
         animation-delay: var(--delay);
