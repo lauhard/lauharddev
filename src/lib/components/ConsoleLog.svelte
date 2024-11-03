@@ -23,6 +23,7 @@
     // function should write it into a paragraph letter by letter like a typewriter
     const typeConsoleMessage = () => {
         let i = 0;
+
         const typeWriter = () => {
             if (i < message.length && consoleMessage) {
                 if (consoleMessage.innerText.length <= 7) {
@@ -58,15 +59,15 @@
                 } else {
                     consoleMessage.innerHTML += message.charAt(i);
                 }
+                if (message.length - 1 == i && cursor) {
+                    cursor.style.animationIterationCount =
+                        "var(--iteration-count)";
+                }
 
                 i++;
                 setTimeout(typeWriter, speed);
             }
-            if (cursor) {
-                cursor.style.animationIterationCount = "var(--iteration-count)";
-            }
         };
-
         typeWriter();
     };
 </script>
@@ -84,6 +85,7 @@
 <style>
     div {
         position: relative;
+        transition: all 0.3s ease-in-out;
     }
     p {
         font-family: monospace;
@@ -98,6 +100,8 @@
         margin-right: 0.5rem;
         display: inline;
         color: var(--text-2);
+        text-wrap: pretty;
+        transition: all 0.3s ease-in-out;
     }
     .cursor {
         display: inline-block;
@@ -113,7 +117,7 @@
         animation-delay: var(--delay);
         animation-name: blink;
         animation-duration: 1s;
-        animation-iteration-count: var(--iteration-count);
+        animation-iteration-count: infinite;
     }
 
     @keyframes blink {

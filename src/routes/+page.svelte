@@ -15,7 +15,7 @@
             <ConsoleLog
                 message="console.log('Hello world & hello you!');"
                 delay={0}
-                blink={1}
+                blink={3}
             ></ConsoleLog>
             <ConsoleLog
                 message="console.info('My name is Andy');"
@@ -30,7 +30,7 @@
             <ConsoleLog
                 message="console.error('Check out my blog  😆');"
                 delay={12000}
-                blink={3}
+                blink={8}
             ></ConsoleLog>
         </div>
     </div>
@@ -42,12 +42,15 @@
 <style lang="scss">
     div {
         display: flex;
+        margin: 0;
         margin-top: 5%;
-        width: 100%;
+        width: 80%;
         flex-direction: column;
         justify-self: center;
         align-self: center;
         gap: 1rem;
+        transition: all 0.3s ease-in-out;
+
         .box {
             flex-direction: column;
             border-radius: 1rem;
