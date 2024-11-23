@@ -35,7 +35,7 @@
         </div>
     </div>
     {#if show}
-        <a href="/blog">click me</a>
+        <a href="/blog" aria-label="Go to blog" type="button">click me</a>
     {/if}
 </div>
 
@@ -112,7 +112,7 @@
         margin-top: 1rem;
         background: var(--primary);
         color: var(--text-1-dark);
-        width: 120px;
+        width: fit-content;
         border: none;
         font-weight: bold;
         border-radius: 5px;

@@ -69,71 +69,32 @@
 </details>
 
 <style lang="scss">
-    .dropdown,
-    summary {
-        outline: none !important;
-        border: none !important;
-        box-shadow: none !important;
-        height: auto !important;
-        margin: 0 !important;
-        text-transform: uppercase !important;
-        ::after {
-            font-size: 14px !important;
-            font-size: 0.77rem; //14px;
-            height: 20px !important;
-            height: 1.05rem !important;
+    details {
+        summary {
+            margin: 0 !important;
+            padding: 0 !important;
+            padding-inline: 0.5rem !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-    }
-    summary {
-        display: flex;
-        align-items: space-between !important;
-        color: var(--pico-primary) !important;
-        padding-inline: 0rem !important;
-        background-color: inherit !important;
-        font-weight: bold;
-        font-size: 0.77rem; //14px;
-        text-align: center;
-        &:hover {
-            color: var(--pico-primary-hover) !important;
+        ul {
+            margin: 0 !important;
+            padding: 0 !important;
+            margin-top: 0.5rem !important;
+            border-radius: 10px !important;
+            overflow: hidden !important;
+            li {
+                margin: 0 !important;
+                padding: 0 !important;
+                list-style: none !important;
+            }
         }
-    }
-
-    ul,
-    li,
-    input {
-        width: 100%;
-        outline: none !important;
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        text-transform: uppercase;
-        color: var(--text-1);
-    }
-    ul {
-        border-radius: 0.7rem !important;
-        background-color: var(--surface-1);
-        //background: linear-gradient(125deg, #333232c0 20%, #24222257 80%);
-        position: relative;
-        overflow: hidden;
-        border: 1px solid var(--surface-1) !important; /* Transparent base border */
-    }
-    input {
-        background-color: transparent;
-        font-size: 13px;
-        font-weight: bold;
-    }
-    li,
-    input {
-        height: 2.2rem !important;
-        display: block !important;
-    }
-    ul {
-        margin-top: 0.3rem !important;
     }
     .dark,
     .light {
-        border-radius: 0 !important;
+        border: none;
+        box-shadow: none;
     }
     .light:hover {
         background-color: var(--surface-2-light);
